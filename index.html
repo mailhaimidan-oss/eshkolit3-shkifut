@@ -4,15 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f5f7fb">
 <title>ועד בית אשכולית 3, שקיפות כספית מלאה</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0d1117; --card:#161b22; --card2:#1c2230; --line:#293040;
-  --txt:#e6edf3; --dim:#9aa5b1; --acc:#4493f8; --ok:#3fb950;
-  --warn:#d29922; --bad:#f85149; --gold:#e3b341;
+  --bg:#f5f7fb; --card:#ffffff; --card2:#eef2f8; --line:#dae1ec;
+  --txt:#17202e; --dim:#5a6779; --acc:#1558c0; --ok:#157f3c;
+  --warn:#8f6100; --bad:#c22a26; --gold:#8a6206;
+  --accbg:#1558c012; --accbd:#1558c033; --accbg2:#1558c022;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
@@ -25,28 +28,28 @@ body{
 
 /* header */
 header{
-  background:linear-gradient(160deg,#12233d 0%,#0d1117 75%);
+  background:linear-gradient(160deg,#e3ecfa 0%,#f5f7fb 78%);
   border-bottom:1px solid var(--line);padding:34px 0 26px;text-align:center;
 }
 header h1{font-size:clamp(1.35rem,5.2vw,2.1rem);font-weight:900;letter-spacing:-.5px}
 header .sub{color:var(--dim);font-size:.92rem;margin-top:8px}
 header .badge{
-  display:inline-block;margin-top:14px;background:#1f6feb22;border:1px solid #1f6feb55;
-  color:#79c0ff;font-size:.8rem;padding:5px 13px;border-radius:20px;font-weight:500;
+  display:inline-block;margin-top:14px;background:#fff;border:1px solid var(--accbd);
+  color:var(--acc);font-size:.8rem;padding:5px 13px;border-radius:20px;font-weight:600;
 }
 
 /* nav */
 nav{
-  position:sticky;top:0;z-index:50;background:#0d1117f2;backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:50;background:#f5f7fbf2;backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
 nav .scroller{display:flex;gap:6px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
 nav .scroller::-webkit-scrollbar{display:none}
 nav a{
-  flex:0 0 auto;color:var(--dim);text-decoration:none;font-size:.86rem;font-weight:500;
+  flex:0 0 auto;color:var(--dim);text-decoration:none;font-size:.86rem;font-weight:600;
   padding:6px 12px;border-radius:8px;white-space:nowrap;border:1px solid transparent;
 }
-nav a:hover,nav a:active{color:var(--txt);background:var(--card2);border-color:var(--line)}
+nav a:hover,nav a:active{color:var(--acc);background:#fff;border-color:var(--line)}
 
 /* sections */
 section{padding:34px 0 6px}
@@ -61,25 +64,26 @@ h2 .ico{font-size:1.15rem}
 .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px}
 .kpi div{
   background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 14px;
+  box-shadow:0 1px 2px #17202e0a;
 }
 .kpi .lbl{font-size:.79rem;color:var(--dim);margin-bottom:5px;line-height:1.4}
 .kpi .num{font-size:clamp(1.15rem,4.6vw,1.5rem);font-weight:900;letter-spacing:-.5px}
 .kpi .n-ok .num{color:var(--ok)} .kpi .n-bad .num{color:var(--bad)}
 .kpi .n-warn .num{color:var(--warn)} .kpi .n-gold .num{color:var(--gold)}
-.kpi .foot{font-size:.73rem;color:#7d8590;margin-top:5px}
+.kpi .foot{font-size:.73rem;color:#626d80;margin-top:5px}
 
 /* cards */
 .card{
   background:var(--card);border:1px solid var(--line);border-radius:14px;
-  padding:17px;margin-bottom:13px;
+  padding:17px;margin-bottom:13px;box-shadow:0 1px 2px #17202e0a;
 }
 .card h3{font-size:1.03rem;font-weight:700;margin-bottom:3px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .card .tag{
   font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px;
-  background:#1f6feb22;color:#79c0ff;border:1px solid #1f6feb44;
+  background:var(--accbg);color:var(--acc);border:1px solid var(--accbd);
 }
-.card .tag.once{background:#3fb95018;color:var(--ok);border-color:#3fb95040}
-.card .tag.month{background:#d2992218;color:var(--warn);border-color:#d2992240}
+.card .tag.once{background:#157f3c14;color:var(--ok);border-color:#157f3c38}
+.card .tag.month{background:#8f610014;color:var(--warn);border-color:#8f610038}
 .card .meta{color:var(--dim);font-size:.85rem;margin:9px 0}
 .card p{font-size:.92rem;margin:9px 0}
 .money{font-weight:900;font-size:1.28rem;letter-spacing:-.5px}
@@ -92,20 +96,20 @@ h2 .ico{font-size:1.15rem}
 }
 .row .k{color:var(--dim);flex:1}
 .row .v{font-weight:700;white-space:nowrap}
-.row.tot{background:#1f6feb1a;border:1px solid #1f6feb44}
+.row.tot{background:var(--accbg);border:1px solid var(--accbd)}
 .row.neg .v{color:var(--bad)} .row.pos .v{color:var(--ok)}
 
 /* doc buttons */
 .docs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 a.doc{
   display:inline-flex;align-items:center;gap:7px;text-decoration:none;
-  background:#1f6feb1f;border:1px solid #1f6feb55;color:#79c0ff;
+  background:var(--accbg);border:1px solid var(--accbd);color:var(--acc);
   font-size:.83rem;font-weight:600;padding:9px 14px;border-radius:9px;
   transition:.15s;min-height:40px;
 }
-a.doc:hover,a.doc:active{background:#1f6feb38;border-color:#4493f8;color:#a5d6ff}
+a.doc:hover,a.doc:active{background:var(--accbg2);border-color:var(--acc);color:#0d3f92}
 a.doc.missing{
-  background:#f8514918;border-color:#f8514955;color:#ff9d95;pointer-events:none;
+  background:#c22a2610;border-color:#c22a2640;color:#a8221e;pointer-events:none;
 }
 
 /* table */
@@ -115,20 +119,20 @@ th{
   background:var(--card2);text-align:right;padding:11px 12px;font-weight:700;
   font-size:.79rem;color:var(--dim);border-bottom:1px solid var(--line);white-space:nowrap;
 }
-td{padding:11px 12px;border-bottom:1px solid #21262d;vertical-align:middle}
+td{padding:11px 12px;border-bottom:1px solid #e6ebf3;vertical-align:middle}
 tr:last-child td{border-bottom:none}
-tr.sum td{background:#1f6feb14;font-weight:900}
+tr.sum td{background:var(--accbg);font-weight:900}
 td.num,th.num{white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums}
 td a.doc{padding:6px 11px;font-size:.78rem;min-height:32px}
 
 /* notes */
 .note{
   border-radius:12px;padding:14px 16px;margin:13px 0;font-size:.9rem;
-  border-right:4px solid var(--acc);background:#1f6feb14;
+  border-right:4px solid var(--acc);background:#1558c00f;
 }
-.note.warn{border-right-color:var(--warn);background:#d2992214}
-.note.bad{border-right-color:var(--bad);background:#f8514914}
-.note.ok{border-right-color:var(--ok);background:#3fb95014}
+.note.warn{border-right-color:var(--warn);background:#8f61000f}
+.note.bad{border-right-color:var(--bad);background:#c22a260f}
+.note.ok{border-right-color:var(--ok);background:#157f3c0f}
 .note b{font-weight:700}
 .note .ttl{font-weight:900;margin-bottom:5px;display:block}
 
@@ -148,7 +152,7 @@ td a.doc{padding:6px 11px;font-size:.78rem;min-height:32px}
 /* faq */
 details{
   background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:0;margin-bottom:9px;overflow:hidden;
+  padding:0;margin-bottom:9px;overflow:hidden;box-shadow:0 1px 2px #17202e0a;
 }
 details summary{
   cursor:pointer;padding:14px 16px;font-weight:700;font-size:.94rem;
@@ -157,7 +161,7 @@ details summary{
 details summary::-webkit-details-marker{display:none}
 details summary::after{content:'+';color:var(--acc);font-size:1.3rem;font-weight:400;line-height:1}
 details[open] summary::after{content:'−'}
-details .body{padding:0 16px 15px;font-size:.9rem;color:#c9d1d9}
+details .body{padding:0 16px 15px;font-size:.9rem;color:#3d4859}
 details .body p{margin:8px 0}
 
 footer{
@@ -639,7 +643,7 @@ footer a{color:var(--acc);text-decoration:none}
       טלפון <a href="tel:0543000501">054-300-0501</a> &nbsp;·&nbsp;
       דוא&quot;ל <a href="mailto:eshkolit3.vaad@gmail.com">eshkolit3.vaad@gmail.com</a>
     </div>
-    <div style="margin-top:14px;font-size:.78rem;color:#6e7681">
+    <div style="margin-top:14px;font-size:.78rem;color:#626d80">
       מתחם הבוסתנים 1500, אשכולית 3, שדרות &nbsp;·&nbsp; גוש 1083, חלקה 286<br>
       העמוד אינו מכיל שמות דיירים, טלפונים או פרטי תשלום אישיים, בהתאם לחוק הגנת הפרטיות, תשמ&quot;א-1981
     </div>
