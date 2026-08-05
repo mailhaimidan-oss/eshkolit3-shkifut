@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ועד בית אשכולית 3, שקיפות כספית מלאה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --card:#161b22; --card2:#1c2230; --line:#293040;
+  --txt:#e6edf3; --dim:#9aa5b1; --acc:#4493f8; --ok:#3fb950;
+  --warn:#d29922; --bad:#f85149; --gold:#e3b341;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Heebo',-apple-system,'Segoe UI',Arial,sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.65;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 14px}
+
+/* header */
+header{
+  background:linear-gradient(160deg,#12233d 0%,#0d1117 75%);
+  border-bottom:1px solid var(--line);padding:34px 0 26px;text-align:center;
+}
+header h1{font-size:clamp(1.35rem,5.2vw,2.1rem);font-weight:900;letter-spacing:-.5px}
+header .sub{color:var(--dim);font-size:.92rem;margin-top:8px}
+header .badge{
+  display:inline-block;margin-top:14px;background:#1f6feb22;border:1px solid #1f6feb55;
+  color:#79c0ff;font-size:.8rem;padding:5px 13px;border-radius:20px;font-weight:500;
+}
+
+/* nav */
+nav{
+  position:sticky;top:0;z-index:50;background:#0d1117f2;backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav .scroller{display:flex;gap:6px;overflow-x:auto;padding:9px 14px;scrollbar-width:none}
+nav .scroller::-webkit-scrollbar{display:none}
+nav a{
+  flex:0 0 auto;color:var(--dim);text-decoration:none;font-size:.86rem;font-weight:500;
+  padding:6px 12px;border-radius:8px;white-space:nowrap;border:1px solid transparent;
+}
+nav a:hover,nav a:active{color:var(--txt);background:var(--card2);border-color:var(--line)}
+
+/* sections */
+section{padding:34px 0 6px}
+h2{
+  font-size:1.28rem;font-weight:900;margin-bottom:6px;
+  display:flex;align-items:center;gap:9px;
+}
+h2 .ico{font-size:1.15rem}
+.lead{color:var(--dim);font-size:.93rem;margin-bottom:18px}
+
+/* kpi */
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px}
+.kpi div{
+  background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 14px;
+}
+.kpi .lbl{font-size:.79rem;color:var(--dim);margin-bottom:5px;line-height:1.4}
+.kpi .num{font-size:clamp(1.15rem,4.6vw,1.5rem);font-weight:900;letter-spacing:-.5px}
+.kpi .n-ok .num{color:var(--ok)} .kpi .n-bad .num{color:var(--bad)}
+.kpi .n-warn .num{color:var(--warn)} .kpi .n-gold .num{color:var(--gold)}
+.kpi .foot{font-size:.73rem;color:#7d8590;margin-top:5px}
+
+/* cards */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:17px;margin-bottom:13px;
+}
+.card h3{font-size:1.03rem;font-weight:700;margin-bottom:3px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.card .tag{
+  font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px;
+  background:#1f6feb22;color:#79c0ff;border:1px solid #1f6feb44;
+}
+.card .tag.once{background:#3fb95018;color:var(--ok);border-color:#3fb95040}
+.card .tag.month{background:#d2992218;color:var(--warn);border-color:#d2992240}
+.card .meta{color:var(--dim);font-size:.85rem;margin:9px 0}
+.card p{font-size:.92rem;margin:9px 0}
+.money{font-weight:900;font-size:1.28rem;letter-spacing:-.5px}
+
+/* rows */
+.rows{display:flex;flex-direction:column;gap:7px;margin:12px 0}
+.row{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  background:var(--card2);border-radius:9px;padding:10px 12px;font-size:.89rem;
+}
+.row .k{color:var(--dim);flex:1}
+.row .v{font-weight:700;white-space:nowrap}
+.row.tot{background:#1f6feb1a;border:1px solid #1f6feb44}
+.row.neg .v{color:var(--bad)} .row.pos .v{color:var(--ok)}
+
+/* doc buttons */
+.docs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+a.doc{
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  background:#1f6feb1f;border:1px solid #1f6feb55;color:#79c0ff;
+  font-size:.83rem;font-weight:600;padding:9px 14px;border-radius:9px;
+  transition:.15s;min-height:40px;
+}
+a.doc:hover,a.doc:active{background:#1f6feb38;border-color:#4493f8;color:#a5d6ff}
+a.doc.missing{
+  background:#f8514918;border-color:#f8514955;color:#ff9d95;pointer-events:none;
+}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:13px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:.87rem;min-width:520px}
+th{
+  background:var(--card2);text-align:right;padding:11px 12px;font-weight:700;
+  font-size:.79rem;color:var(--dim);border-bottom:1px solid var(--line);white-space:nowrap;
+}
+td{padding:11px 12px;border-bottom:1px solid #21262d;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr.sum td{background:#1f6feb14;font-weight:900}
+td.num,th.num{white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums}
+td a.doc{padding:6px 11px;font-size:.78rem;min-height:32px}
+
+/* notes */
+.note{
+  border-radius:12px;padding:14px 16px;margin:13px 0;font-size:.9rem;
+  border-right:4px solid var(--acc);background:#1f6feb14;
+}
+.note.warn{border-right-color:var(--warn);background:#d2992214}
+.note.bad{border-right-color:var(--bad);background:#f8514914}
+.note.ok{border-right-color:var(--ok);background:#3fb95014}
+.note b{font-weight:700}
+.note .ttl{font-weight:900;margin-bottom:5px;display:block}
+
+/* timeline */
+.tl{position:relative;padding-right:26px;margin-top:6px}
+.tl::before{content:'';position:absolute;right:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl .ev{position:relative;padding-bottom:19px}
+.tl .ev::before{
+  content:'';position:absolute;right:-24px;top:7px;width:11px;height:11px;
+  border-radius:50%;background:var(--acc);border:2px solid var(--bg);
+}
+.tl .ev.hot::before{background:var(--bad)} .tl .ev.star::before{background:var(--gold)}
+.tl .ev.good::before{background:var(--ok)}
+.tl .d{font-size:.78rem;color:var(--dim);font-weight:700;letter-spacing:.3px}
+.tl .t{font-size:.92rem;margin-top:2px}
+
+/* faq */
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:0;margin-bottom:9px;overflow:hidden;
+}
+details summary{
+  cursor:pointer;padding:14px 16px;font-weight:700;font-size:.94rem;
+  list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:'+';color:var(--acc);font-size:1.3rem;font-weight:400;line-height:1}
+details[open] summary::after{content:'−'}
+details .body{padding:0 16px 15px;font-size:.9rem;color:#c9d1d9}
+details .body p{margin:8px 0}
+
+footer{
+  margin-top:38px;border-top:1px solid var(--line);padding:24px 0 34px;
+  text-align:center;color:var(--dim);font-size:.85rem;
+}
+footer .name{color:var(--txt);font-weight:700;font-size:.95rem}
+footer a{color:var(--acc);text-decoration:none}
+.hr{height:1px;background:var(--line);margin:30px 0 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>ועד בית אשכולית 3</h1>
+    <div class="sub">מתחם הבוסתנים 1500, שדרות &nbsp;·&nbsp; 9 קומות, 30 דירות</div>
+    <div class="badge">שקיפות כספית מלאה &nbsp;·&nbsp; עודכן 05.08.2026</div>
+  </div>
+</header>
+
+<nav>
+  <div class="scroller">
+    <a href="#mazav">תמונת מצב</a>
+    <a href="#gviot">שלוש הגביות</a>
+    <a href="#hotzaot">ההוצאות</a>
+    <a href="#hashmal">חוב החשמל</a>
+    <a href="#maaliot">חוב המעליות</a>
+    <a href="#lotem">התיק מול לוטם</a>
+    <a href="#mihtavim">מכתבי עו"ד</a>
+    <a href="#hov">חוב פתוח</a>
+    <a href="#halah">מה הלאה</a>
+    <a href="#shealot">שאלות</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ תמונת מצב ============ -->
+<section id="mazav">
+  <h2><span class="ico">📊</span> תמונת מצב, כל הכסף במקום אחד</h2>
+  <p class="lead">כל מספר בעמוד הזה מגיע ממסמך. ליד כל סכום שיש עליו אסמכתא, יש כפתור שפותח אותה.</p>
+
+  <div class="kpi">
+    <div class="n-gold">
+      <div class="lbl">נגבה מכל הדיירים מאז האכלוס</div>
+      <div class="num">12,510 ₪</div>
+      <div class="foot">שלוש גביות, מ-09.09.2025 עד היום</div>
+    </div>
+    <div class="n-bad">
+      <div class="lbl">שולם בפועל לספקים ולרשויות</div>
+      <div class="num">13,595.96 ₪</div>
+      <div class="foot">חשמל, מעליות, ביוב, אגודה</div>
+    </div>
+    <div class="n-bad">
+      <div class="lbl">מצב נטו של הקופה</div>
+      <div class="num">−1,085.96 ₪</div>
+      <div class="foot">הוצאנו יותר ממה שנגבה</div>
+    </div>
+    <div class="n-warn">
+      <div class="lbl">שילם יו&quot;ר הוועד מכיסו הפרטי</div>
+      <div class="num">7,673.96 ₪</div>
+      <div class="foot">כדי למנוע ניתוק חשמל והשבתת מעליות</div>
+    </div>
+  </div>
+
+  <div class="note ok">
+    <span class="ttl">✅ אין בקופה כסף עודף, ואף אגורה לא הלכה לאיבוד</span>
+    כל שקל שנגבה מהדיירים יצא לספק חיצוני עם חשבונית או קבלה. <b>יו&quot;ר הוועד אינו מקבל ואינו מבקש שכר או תמורה כלשהי</b> על ניהול הוועד.
+  </div>
+
+  <div class="note warn">
+    <span class="ttl">⚠ למה הקופה בגירעון</span>
+    לא בגלל בזבוז. בגלל ש<b>חברת התחזוקה לוטם גבתה מהדיירים כספי אחזקה ולא העבירה אותם לספקים</b>. המעליות הושבתו והחשמל הגיע לשלוש התראות ניתוק, ויו&quot;ר הוועד שילם 7,673.96 ₪ מכיסו כדי להחזיר אותם. הכסף הזה נדרש בחזרה, ראה <a href="#lotem" style="color:var(--acc)">התיק מול לוטם</a>.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ שלוש הגביות ============ -->
+<section id="gviot">
+  <h2><span class="ico">💰</span> שלוש הגביות, ועל מה בדיוק יצא הכסף</h2>
+  <p class="lead">מאז האכלוס היו בבניין שלוש גביות בלבד. שתיים מהן חד פעמיות ואחת חודשית.</p>
+
+  <!-- 270 -->
+  <div class="card">
+    <h3>1. גבייה של 270 ₪ <span class="tag once">חד פעמי, לא חוזר</span></h3>
+    <div class="meta">נגבתה בתקופת הוועד הקודם, החל מ-09.09.2025 &nbsp;·&nbsp; שילמו 15 דירות</div>
+    <div class="money" style="color:var(--gold)">4,050 ₪ נגבו</div>
+    <div class="rows">
+      <div class="row"><span class="k">מיגון מעליות</span><span class="v">3,000 ₪</span></div>
+      <div class="row"><span class="k">ביובית, פתיחת סתימת ביוב, 900 ₪ + 162 מע&quot;מ 18%</span><span class="v">1,062 ₪</span></div>
+      <div class="row tot"><span class="k">סה&quot;כ הוצאה</span><span class="v">4,062 ₪</span></div>
+      <div class="row neg"><span class="k">נטו הסבב</span><span class="v">−12 ₪</span></div>
+    </div>
+    <div class="note ok" style="margin:11px 0 0">
+      <b>הסבב הזה סגור.</b> הגבייה כיסתה את ההוצאה כמעט לשקל, הפער 12 ₪ בלבד. <b>לא נדרש מאף אחד להשלים אותו</b> והוא לא נספר בקופה הנוכחית.
+    </div>
+    <div class="docs">
+      <a class="doc" href="docs/plumbing-invoice-2322.jpeg" target="_blank" rel="noopener">📄 חשבונית מס/קבלה 2322, ביובית 1,062 ₪</a>
+      <a class="doc missing">⚠ חשבונית מיגון המעליות 3,000 ₪, נדרשת מהוועד הקודם</a>
+    </div>
+  </div>
+
+  <!-- 300 -->
+  <div class="card">
+    <h3>2. גבייה של 300 ₪ <span class="tag once">חד פעמי, שנתי</span></h3>
+    <div class="meta">נגבתה 02 עד 08.07.2026 &nbsp;·&nbsp; שילמו 13 דירות</div>
+    <div class="money" style="color:var(--gold)">3,900 ₪ נגבו</div>
+    <div class="rows">
+      <div class="row"><span class="k">האגודה לתרבות הדיור, מנוי לשנתיים מראש</span><span class="v">1,860 ₪</span></div>
+      <div class="row"><span class="k">היתרה, לכיסוי חוב החשמל הציבורי של הבניין</span><span class="v">2,040 ₪</span></div>
+      <div class="row tot"><span class="k">סה&quot;כ</span><span class="v">3,900 ₪</span></div>
+    </div>
+    <p><b>מה זה האגודה לתרבות הדיור.</b> גוף שנותן לוועד ייעוץ משפטי חינם, סיוע מול קבלן, טיפול בדיירים שמסרבים לשלם, וטפסים רשמיים. <b>המחיר הוא 31 ₪ לדירה לשנה. שולם לשנתיים מראש בכוונה</b>, 31 × 30 דירות × 2 שנים = 1,860 ₪ בדיוק, כי זה התנאי לקבל <b>&quot;שנת בדק&quot; במתנה</b>, כלומר בדיקת ליקויי בנייה מקצועית מול הקבלן אסום בלי לשלם עליה.</p>
+    <div class="docs">
+      <a class="doc" href="docs/agoda-receipt-217003296.pdf" target="_blank" rel="noopener">📄 קבלה 217003296, אגודה 1,860 ₪</a>
+      <a class="doc" href="docs/agoda-services.pdf" target="_blank" rel="noopener">📋 פירוט מלא של כל השירותים שהאגודה נותנת</a>
+    </div>
+  </div>
+
+  <!-- 380 -->
+  <div class="card">
+    <h3>3. דמי ועד של 380 ₪ <span class="tag month">חודשי</span></h3>
+    <div class="meta">החל מאוגוסט 2026 &nbsp;·&nbsp; שילמו עד כה 12 דירות</div>
+    <div class="money" style="color:var(--gold)">4,560 ₪ נגבו לאוגוסט</div>
+    <p><b>זה התשלום השוטף היחיד בבניין.</b> הוא מחליף את דמי האחזקה שנגבו עד כה על ידי לוטם, והוא יועבר במלואו לחברת האחזקה החדשה שתיבחר. עד לחתימה על ההסכם, הכספים נשארים בקופת הוועד.</p>
+    <p style="color:var(--dim);font-size:.87rem">מה שחברת האחזקה מספקת תמורת הסכום, לפי ההצעות שעל השולחן:</p>
+    <div class="rows">
+      <div class="row"><span class="k">חשמל ציבורי לבניין</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">מעליות שינדלר, תשלום שוטף ותקלות</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">ניקיון, 4 ימים בשבוע</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">גינון, פעמיים בחודש</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">הדברה, פעם בשנה</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">ביטוח צד ג&#39; לבניין, כולל חברי הוועד</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">מהנדס בודק מעליות, כנדרש בחוק</span><span class="v">כלול</span></div>
+      <div class="row"><span class="k">מוקד חירום 24/7 וביקורת תחזוקה שבועית</span><span class="v">כלול</span></div>
+    </div>
+    <div class="note warn">
+      <span class="ttl">⚠ הבהרה חשובה, הסכום עדיין לא אושר באסיפה</span>
+      גובה דמי הוועד טעון אישור אסיפת דיירים. <b>האסיפה מ-26.07.2026 אישרה את הוצאת לוטם, ולא את גובה הסכום.</b> לכן הגבייה של 380 ₪ היא <b>זמנית</b>, והיא תובא לאישור באסיפה שתכונס בקרוב. <b>אם האסיפה תחליט אחרת, תיערך התאמה והפרש יוחזר או יזוכה.</b> אנחנו לא כותבים &quot;לפי החלטת אסיפה&quot; לפני שיש פרוטוקול חתום.
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ הוצאות ============ -->
+<section id="hotzaot">
+  <h2><span class="ico">🧾</span> כל ההוצאות, שורה שורה, עם אסמכתא</h2>
+  <p class="lead">הוועד הנוכחי, מ-29.04.2026. לחיצה על הכפתור פותחת את הקבלה או האסמכתא המקורית.</p>
+
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>תאריך</th><th>למי שולם</th><th>על מה</th><th class="num">סכום</th><th>מי שילם</th><th>אסמכתא</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>02.07.2026</td><td>האגודה לתרבות הדיור</td>
+          <td>מנוי לשנתיים, ייעוץ משפטי וסיוע לוועד</td>
+          <td class="num">1,860.00 ₪</td><td>יו&quot;ר הוועד</td>
+          <td><a class="doc" href="docs/agoda-receipt-217003296.pdf" target="_blank" rel="noopener">📄 קבלה 217003296</a></td>
+        </tr>
+        <tr>
+          <td>02.08.2026</td><td>שינדלר ישראל בע&quot;מ</td>
+          <td>על חשבון חוב המעליות, כדי להחזיר את המעליות לפעולה</td>
+          <td class="num">5,000.00 ₪</td><td>יו&quot;ר הוועד</td>
+          <td>
+            <a class="doc" href="docs/schindler-receipt-36044219.pdf" target="_blank" rel="noopener">📄 קבלה 36044219</a>
+            <a class="doc" href="docs/schindler-transfer-011832.png" target="_blank" rel="noopener">🏦 אסמכתא 011832</a>
+          </td>
+        </tr>
+        <tr>
+          <td>02.08.2026</td><td>חברת החשמל לישראל</td>
+          <td>חשמל ציבורי לבניין, כדי למנוע ניתוק</td>
+          <td class="num">2,673.96 ₪</td><td>יו&quot;ר הוועד</td>
+          <td><a class="doc" href="docs/iec-payment-confirmation.html" target="_blank" rel="noopener">📄 קבלה 300070373324</a></td>
+        </tr>
+        <tr>
+          <td>24.06.2026</td><td>עמית אינסטלציה וגרירה</td>
+          <td>פתיחת סתימת ביוב, ביובית. מומן מגביית ה-270</td>
+          <td class="num">1,062.00 ₪</td><td>הוועד הקודם</td>
+          <td><a class="doc" href="docs/plumbing-invoice-2322.jpeg" target="_blank" rel="noopener">📄 חשבונית 2322</a></td>
+        </tr>
+        <tr>
+          <td>לא ידוע</td><td>לא ידוע</td>
+          <td>מיגון מעליות. מומן מגביית ה-270</td>
+          <td class="num">3,000.00 ₪</td><td>הוועד הקודם</td>
+          <td><a class="doc missing">⚠ חשבונית חסרה</a></td>
+        </tr>
+        <tr class="sum">
+          <td colspan="3">סה&quot;כ הוצאות מאז האכלוס</td>
+          <td class="num">13,595.96 ₪</td><td colspan="2"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="ttl">איך זה מתחבר לגבייה</span>
+    נגבה <b>12,510 ₪</b>, הוצא <b>13,595.96 ₪</b>. הפער, <b>1,085.96 ₪</b>, כוסה מכיסו הפרטי של יו&quot;ר הוועד ביחד עם עוד סכומים שנדרשים בהשבה. <b>אין כסף שיושב בקופה בלי הסבר.</b>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ חשמל ============ -->
+<section id="hashmal">
+  <h2><span class="ico">⚡</span> חוב החשמל הציבורי של הבניין</h2>
+  <p class="lead">חשבון חוזה 348912059. לוטם התחייבה בחוזה לשלם 1,000 ₪ בחודש לחשמל הציבורי, סעיף 5.11. בפועל לא שילמה אגורה מיולי 2025.</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>חשבונית</th><th>תקופה</th><th class="num">סכום</th><th>מצב</th><th>מסמך</th></tr></thead>
+      <tbody>
+        <tr><td>411361923</td><td>14.07.2025 עד 24.08.2025</td><td class="num">446.30 ₪</td><td style="color:var(--ok)">✅ שולם 02.08.2026</td>
+          <td><a class="doc" href="docs/iec-411361923.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr><td>491540790</td><td>25.08.2025 עד 28.09.2025</td><td class="num">754.17 ₪</td><td style="color:var(--ok)">✅ שולם 02.08.2026</td>
+          <td><a class="doc" href="docs/iec-491540790.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr><td>410689145</td><td>24.02.2026 עד 28.04.2026</td><td class="num">2,782.15 ₪</td><td style="color:var(--warn)">⚠ נותרו 1,581.68 ₪</td>
+          <td><a class="doc" href="docs/iec-410689145.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr><td>491039759</td><td>29.04.2026 עד 23.06.2026</td><td class="num">1,473.49 ₪</td><td style="color:var(--ok)">✅ שולם 02.08.2026</td>
+          <td><a class="doc" href="docs/iec-491039759.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr class="sum"><td colspan="2">סה&quot;כ חוב אמיתי</td><td class="num">4,255.64 ₪</td><td colspan="2"></td></tr>
+        <tr><td colspan="2">שולם ב-02.08.2026 מכיס פרטי</td><td class="num" style="color:var(--ok)">−2,673.96 ₪</td><td colspan="2">
+          <a class="doc" href="docs/iec-payment-confirmation.html" target="_blank" rel="noopener">📄 אישור תשלום, קבלה 300070373324</a></td></tr>
+        <tr class="sum"><td colspan="2">יתרה פתוחה בחשבון החוזה</td><td class="num" style="color:var(--bad)">1,581.68 ₪</td><td colspan="2"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="ttl">למה הסכימה של החשבוניות גדולה מהחוב</span>
+    ארבע החשבוניות מסתכמות ב-5,456.11 ₪, אבל החוב האמיתי הוא 4,255.64 ₪. הסיבה, <b>חשבונית 410689145 כוללת בתוכה את שתי החשבוניות הראשונות כחוב מועבר</b>, 446.30 + 754.17 = 1,200.47 ₪, ולכן סכימה פשוטה סופרת אותן פעמיים. הפירוק הנכון, 1,200.47 חוב מועבר + 1,581.68 צריכה שוטפת + 1,473.49 = <b>4,255.64 ₪ בדיוק</b>.
+  </div>
+
+  <div class="note bad">
+    <span class="ttl">🚨 שלוש התראות ניתוק חשמל</span>
+    בתוך חשבונית 410689145 מופיעים <b>שלושה חיובים נפרדים על &quot;הוצאות בגין התראה על חוב וניתוק חשמל&quot;</b>. הבניין, בן 9 קומות ו-30 דירות, הגיע לסף ניתוק אור בלובי ומעליות, בלי שהוועד עודכן על ידי לוטם.
+    <div class="docs"><a class="doc" href="docs/electricity-debt-analysis.pdf" target="_blank" rel="noopener">📑 פענוח מלא של חוב החשמל</a></div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ מעליות ============ -->
+<section id="maaliot">
+  <h2><span class="ico">🛗</span> חוב המעליות לשינדלר</h2>
+  <p class="lead">מספר לקוח 3090420. לפי סעיף 5.12 לחוזה האחזקה, <b>התשלום החודשי לשינדלר הוא באחריות לוטם ולא באחריות הוועד</b>.</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>חשבונית</th><th>תקופה</th><th class="num">סכום</th><th>מסמך</th></tr></thead>
+      <tbody>
+        <tr><td>389117948</td><td>מרץ 2026</td><td class="num">2,154.09 ₪</td>
+          <td><a class="doc" href="docs/schindler-inv-389117948.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr><td>389132398</td><td>רבעון אפריל עד יוני 2026</td><td class="num">8,044.46 ₪</td>
+          <td><a class="doc" href="docs/schindler-inv-389132398.pdf" target="_blank" rel="noopener">📄 חשבונית</a></td></tr>
+        <tr><td>389162377 + 389162378</td><td>רבעון יולי עד ספטמבר 2026</td><td class="num">8,114.18 ₪</td>
+          <td><a class="doc missing">⚠ נדרשה משינדלר, טרם התקבלה</a></td></tr>
+        <tr class="sum"><td colspan="2">סה&quot;כ חוב מקורי</td><td class="num">18,312.73 ₪</td><td></td></tr>
+        <tr><td colspan="2">שולם 02.08.2026 מכיס פרטי, כדי להחזיר את המעליות</td><td class="num" style="color:var(--ok)">−5,000.00 ₪</td>
+          <td><a class="doc" href="docs/schindler-receipt-36044219.pdf" target="_blank" rel="noopener">📄 קבלה 36044219</a></td></tr>
+        <tr class="sum"><td colspan="2">יתרה פתוחה</td><td class="num" style="color:var(--bad)">13,312.73 ₪</td>
+          <td><a class="doc" href="docs/schindler-balance-confirmation.html" target="_blank" rel="noopener">📄 אישור יתרה משינדלר</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note bad">
+    <span class="ttl">🚨 ב-20.07.2026 שינדלר השביתה את המעליות</span>
+    בניין בן 9 קומות נשאר בלי מעליות, בגלל חוב שלוטם גבתה עליו כסף מהדיירים ולא שילמה. <b>המעליות הוחזרו לפעולה רק אחרי שיו&quot;ר הוועד שילם 5,000 ₪ מכיסו הפרטי, תחת מחאה ובלי להודות בחוב.</b> היתרה נדרשת מלוטם.
+  </div>
+
+  <div class="note ok">
+    <span class="ttl">✅ היתרה אושרה בכתב על ידי שינדלר עצמה</span>
+    ב-05.08.2026 שלחה גובת החובות של שינדלר אישור בכתב, &quot;יתרת החוב עבור חשבוניות השירות הינה 13,312.73 ₪&quot;. זה לא חישוב שלנו, זה אישור מהנושה.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ לוטם ============ -->
+<section id="lotem">
+  <h2><span class="ico">⚖️</span> ההשתלשלות המלאה מול לוטם</h2>
+  <p class="lead">לוטם אחזקות, איתמר ח אחזקות וניקיון בע&quot;מ, ח.פ. 516727989. מונתה על ידי הקבלן אסום, לא על ידי אסיפת הדיירים.</p>
+
+  <div class="card" style="background:var(--card2)">
+    <h3>ליבת הבעיה בשלוש שורות</h3>
+    <p>לוטם התחייבה בחוזה לשלם, <b>מכספי הדיירים שהיא גובה</b>, את תשלומי המעליות לשינדלר ואת החשמל הציבורי של הבניין. <b>היא גבתה את הכסף ולא שילמה לספקים.</b> התוצאה, המעליות הושבתו, החשמל הגיע לשלוש התראות ניתוק, ויו&quot;ר הוועד נאלץ לשלם 7,673.96 ₪ מכיסו הפרטי.</p>
+    <div class="docs">
+      <a class="doc" href="docs/lotem-contract.pdf" target="_blank" rel="noopener">📑 חוזה האחזקה המקורי מול לוטם</a>
+      <a class="doc" href="docs/lotem-breaches-table.pdf" target="_blank" rel="noopener">📋 טבלת ההפרות לפי סעיפי החוזה</a>
+    </div>
+  </div>
+
+  <div class="tbl" style="margin-bottom:15px">
+    <table>
+      <thead><tr><th>סעיף בחוזה</th><th>מה לוטם התחייבה</th><th>מה קרה בפועל</th></tr></thead>
+      <tbody>
+        <tr><td class="num">5.12</td><td>לשלם את התשלום החודשי על המעליות</td><td style="color:var(--bad)">לא שולם. חוב 18,312.73 ₪, המעליות הושבתו</td></tr>
+        <tr><td class="num">5.11</td><td>לשלם 1,000 ₪ בחודש לחשמל הציבורי, בשקיפות מלאה לדיירים</td><td style="color:var(--bad)">לא שולם, ומעולם לא הוצג ולו אישור תשלום אחד</td></tr>
+        <tr><td class="num">5.9</td><td>להמציא אישור ביטוח צד ג&#39; לבניין</td><td style="color:var(--bad)">לא הומצא מעולם. 30 דירות פעלו חודשים בלי כיסוי ביטוחי</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-size:1.02rem;font-weight:700;margin:20px 0 12px">ציר הזמן, מהאכלוס עד היום</h3>
+  <div class="tl">
+    <div class="ev"><div class="d">01.09.2025</div><div class="t">חוזה האחזקה עם לוטם נכנס לתוקף. הוועד לא בחר אותה, הקבלן אסום מינה אותה.</div></div>
+    <div class="ev good"><div class="d">01.10.2025</div><div class="t">מסירת חזקה ואכלוס הבניין.</div></div>
+    <div class="ev"><div class="d">09.09.2025 והלאה</div><div class="t">הוועד הקודם גובה 270 ₪ לדירה. הכסף יוצא על מיגון מעליות וסתימת ביוב.</div></div>
+    <div class="ev good"><div class="d">29.04.2026</div><div class="t"><b>אסיפת דיירים בוחרת ועד קבוע.</b> עידן חיים נבחר ליו&quot;ר, 6 בעד, 0 נגד, 0 נמנעים.
+      <div class="docs"><a class="doc" href="docs/committee-mandate.html" target="_blank" rel="noopener">📄 פרוטוקול בחירת הוועד, 29.04.2026</a></div></div></div>
+    <div class="ev"><div class="d">19.05.2026</div><div class="t">דרישה ראשונה בכתב מלוטם לשלם את חוב המעליות, סעיף 5.12.</div></div>
+    <div class="ev"><div class="d">28.05.2026</div><div class="t">דרישה בכתב להמצאת פוליסת ביטוח צד ג&#39;, סעיף 5.9. לא נענתה.</div></div>
+    <div class="ev"><div class="d">04.06.2026</div><div class="t">התראה לפני נקיטת הליכים בעניין חוב שינדלר.</div></div>
+    <div class="ev star"><div class="d">09.06.2026</div><div class="t"><b>לוטם מסרבת בכתב</b> למסור מסמכים, ודורשת פרוטוקול אסיפה ברוב של 75%. <b>דרישה שאין לה בסיס בחוק</b>, בחירת ועד נעשית ברוב רגיל של הנוכחים. זו ראיה מרכזית לחוסר תום לב.</div></div>
+    <div class="ev"><div class="d">24.06.2026</div><div class="t">ביובית פותחת סתימת ביוב בבניין, 1,062 ₪, ממומן מגביית ה-270.</div></div>
+    <div class="ev"><div class="d">02.07.2026</div><div class="t">הוועד מצטרף לאגודה לתרבות הדיור, 1,860 ₪, כדי לקבל ייעוץ משפטי וגב מקצועי.</div></div>
+    <div class="ev"><div class="d">13.07.2026</div><div class="t">האגודה לתרבות הדיור פונה ללוטם בכתב ומצרפת מכתב מהיועץ המשפטי שלה.</div></div>
+    <div class="ev hot"><div class="d">20.07.2026</div><div class="t"><b>שינדלר משביתה את המעליות בבניין</b> בגלל החוב שלוטם לא שילמה.</div></div>
+    <div class="ev good"><div class="d">26.07.2026</div><div class="t"><b>אסיפת דיירים מחליטה להוציא את לוטם</b> ומחתימה ייפויי כוח מבעלי הדירות.</div></div>
+    <div class="ev star"><div class="d">28.07.2026</div><div class="t"><b>עו&quot;ד משה זדה שולח ללוטם מכתב סיום התקשרות והתראה טרם נקיטת הליכים</b> בשם הנציגויות.
+      <div class="docs"><a class="doc" href="docs/letter-zada-termination-2026-07-28.pdf" target="_blank" rel="noopener">📄 המכתב</a></div></div></div>
+    <div class="ev hot"><div class="d">02.08.2026</div><div class="t"><b>יו&quot;ר הוועד משלם 7,673.96 ₪ מכיסו הפרטי,</b> 5,000 ₪ לשינדלר ו-2,673.96 ₪ לחברת החשמל, כדי להחזיר מעליות ולמנוע ניתוק. התשלום בוצע <b>תחת מחאה</b>, בלי להודות בחוב. במקביל בוטלה הוראת התשלום ללוטם.</div></div>
+    <div class="ev"><div class="d">03.08.2026</div><div class="t">נשלחת <b>דרישת השבה רשמית ללוטם</b>, ובקשת כרטסת מלאה משינדלר.
+      <div class="docs">
+        <a class="doc" href="docs/letter-lotem-refund-2026-08-03.pdf" target="_blank" rel="noopener">📄 מכתב דרישת ההשבה</a>
+        <a class="doc" href="docs/letter-schindler-ledger-2026-08-03.pdf" target="_blank" rel="noopener">📄 מכתב לשינדלר</a>
+      </div></div></div>
+    <div class="ev good"><div class="d">05.08.2026</div><div class="t">שינדלר מאשרת בכתב את היתרה, 13,312.73 ₪. ההסכם עם חברת האחזקה החדשה בשלבי סגירה, וכולל <b>התחייבות להשיב לעידן את 7,673.96 ₪ תוך 14 יום</b>.</div></div>
+  </div>
+
+  <div class="note">
+    <span class="ttl">מה הלאה בתיק</span>
+    התיק מטופל על ידי <b>עו&quot;ד משה זדה</b> בשם נציגויות הבניינים במתחם, ובגב של האגודה לתרבות הדיור. הכיוון, <b>תביעה כספית להשבת כל הכסף שלוטם גבתה ולא העבירה לספקים</b>. אנחנו לא היחידים, גם הבניינים האחרים במתחם באותו מצב, וזה מחזק את התיק.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ מכתבים ============ -->
+<section id="mihtavim">
+  <h2><span class="ico">📬</span> כל המכתבים הרשמיים והמסמכים</h2>
+  <p class="lead">כל מכתב שיצא, כל חוזה, כל פרוטוקול. הכל פתוח לעיון.</p>
+
+  <div class="card">
+    <h3>מכתבי עורכי הדין</h3>
+    <div class="docs">
+      <a class="doc" href="docs/letter-zada-termination-2026-07-28.pdf" target="_blank" rel="noopener">📄 28.07.2026, סיום התקשרות והתראה טרם הליכים, עו&quot;ד משה זדה</a>
+      <a class="doc" href="docs/letter-lotem-refund-2026-08-03.pdf" target="_blank" rel="noopener">📄 03.08.2026, דרישת השבה מלוטם</a>
+      <a class="doc" href="docs/letter-schindler-ledger-2026-08-03.pdf" target="_blank" rel="noopener">📄 03.08.2026, בקשת כרטסת משינדלר</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>חוזים, פרוטוקולים וניתוחים</h3>
+    <div class="docs">
+      <a class="doc" href="docs/lotem-contract.pdf" target="_blank" rel="noopener">📑 חוזה האחזקה מול לוטם</a>
+      <a class="doc" href="docs/lotem-breaches-table.pdf" target="_blank" rel="noopener">📋 טבלת ההפרות של לוטם לפי סעיפי החוזה</a>
+      <a class="doc" href="docs/committee-mandate.html" target="_blank" rel="noopener">📄 פרוטוקול בחירת הוועד, 29.04.2026</a>
+      <a class="doc" href="docs/electricity-debt-analysis.pdf" target="_blank" rel="noopener">📑 פענוח מלא של חוב החשמל</a>
+      <a class="doc" href="docs/agoda-services.pdf" target="_blank" rel="noopener">📋 פירוט שירותי האגודה לתרבות הדיור</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>קבלות ואסמכתאות תשלום</h3>
+    <div class="docs">
+      <a class="doc" href="docs/agoda-receipt-217003296.pdf" target="_blank" rel="noopener">📄 קבלה 217003296, אגודה, 1,860 ₪</a>
+      <a class="doc" href="docs/schindler-receipt-36044219.pdf" target="_blank" rel="noopener">📄 קבלה 36044219, שינדלר, 5,000 ₪</a>
+      <a class="doc" href="docs/schindler-transfer-011832.png" target="_blank" rel="noopener">🏦 אסמכתא בנקאית 011832, 5,000 ₪</a>
+      <a class="doc" href="docs/schindler-balance-confirmation.html" target="_blank" rel="noopener">📄 אישור יתרה משינדלר, 13,312.73 ₪</a>
+      <a class="doc" href="docs/iec-payment-confirmation.html" target="_blank" rel="noopener">📄 אישור תשלום חח&quot;י, קבלה 300070373324</a>
+      <a class="doc" href="docs/plumbing-invoice-2322.jpeg" target="_blank" rel="noopener">📄 חשבונית 2322, ביובית, 1,062 ₪</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>חשבוניות מקוריות</h3>
+    <div class="docs">
+      <a class="doc" href="docs/iec-411361923.pdf" target="_blank" rel="noopener">⚡ חשמל 411361923, 446.30 ₪</a>
+      <a class="doc" href="docs/iec-491540790.pdf" target="_blank" rel="noopener">⚡ חשמל 491540790, 754.17 ₪</a>
+      <a class="doc" href="docs/iec-410689145.pdf" target="_blank" rel="noopener">⚡ חשמל 410689145, 2,782.15 ₪</a>
+      <a class="doc" href="docs/iec-491039759.pdf" target="_blank" rel="noopener">⚡ חשמל 491039759, 1,473.49 ₪</a>
+      <a class="doc" href="docs/schindler-inv-389117948.pdf" target="_blank" rel="noopener">🛗 שינדלר 389117948, 2,154.09 ₪</a>
+      <a class="doc" href="docs/schindler-inv-389132398.pdf" target="_blank" rel="noopener">🛗 שינדלר 389132398, 8,044.46 ₪</a>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ חוב פתוח ============ -->
+<section id="hov">
+  <h2><span class="ico">📌</span> חוב פתוח של דיירים</h2>
+
+  <div class="kpi">
+    <div class="n-warn"><div class="lbl">דמי אוגוסט שטרם שולמו</div><div class="num">3,800 ₪</div><div class="foot">10 דירות × 380 ₪</div></div>
+    <div class="n-warn"><div class="lbl">התשלום השנתי שטרם שולם</div><div class="num">2,700 ₪</div><div class="foot">9 דירות × 300 ₪</div></div>
+    <div class="n-bad"><div class="lbl">סה&quot;כ חוב פתוח</div><div class="num">6,500 ₪</div><div class="foot">מ-13 דירות</div></div>
+  </div>
+
+  <div class="note ok">
+    <span class="ttl">🔒 בכוונה אין כאן שמות</span>
+    <b>אסור לפרסם רשימת חייבים.</b> חוק הגנת הפרטיות, תשמ&quot;א-1981, אוסר על כך, וגם אם היה מותר, זה לא הדרך. <b>כל דייר שטרם שילם מקבל הודעה אישית בפרטי, לא בקבוצה.</b> אין כאן הלבנת פנים ואין רשימות.
+  </div>
+
+  <div class="note warn">
+    <span class="ttl">בקשה אישית מיו&quot;ר הוועד</span>
+    אני עובד על הבניין ימים ולילות, בלי שכר ובלי תמורה, ובינתיים גם מכיסי הפרטי. <b>אנחנו הבניין היחיד במתחם שבאמת מתקדם</b>, שהוציא את לוטם, שהחזיר את המעליות, ושיש לו תיק מסודר עם עורך דין. אני מבקש דבר אחד, <b>להקל עליי</b>. מי שטרם שילם, שישלם. מי שיש לו שאלה, שישאל אותי ישירות ואני אענה עם מסמך ביד.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ מה הלאה ============ -->
+<section id="halah">
+  <h2><span class="ico">🎯</span> מה הלאה</h2>
+  <div class="rows">
+    <div class="row"><span class="k"><b>לכנס אסיפת דיירים</b> לאישור גובה דמי הוועד ולאישור ההתקשרות עם חברת האחזקה החדשה, עם פרוטוקול חתום</span><span class="v" style="color:var(--warn)">דחוף</span></div>
+    <div class="row"><span class="k"><b>לחתום עם חברת האחזקה החדשה</b>, כולל התחייבות להשיב 7,673.96 ₪ תוך 14 יום</span><span class="v" style="color:var(--warn)">בתהליך</span></div>
+    <div class="row"><span class="k"><b>לפתוח חשבון בנק נפרד לוועד</b> עם חתימה כפולה, כדי להפסיק לערבב כספי ועד עם כספים אישיים</span><span class="v" style="color:var(--warn)">לאסיפה</span></div>
+    <div class="row"><span class="k"><b>לתבוע מלוטם את כל הכסף</b> שגבתה ולא העבירה לספקים, כולל יתרת 13,312.73 ₪ לשינדלר</span><span class="v" style="color:var(--acc)">אצל עו&quot;ד</span></div>
+    <div class="row"><span class="k"><b>לממש את &quot;שנת הבדק&quot; במתנה</b> מהאגודה לתרבות הדיור, בדיקת ליקויי בנייה מקצועית מול הקבלן אסום</span><span class="v" style="color:var(--bad)">עד 01.10.2026</span></div>
+    <div class="row"><span class="k"><b>לדרוש מאסום תיקון ליקויי הבנייה</b>, שוחות ביוב, ארונות חשמל, מדרכות, בזמן שהאחריות עוד בתוקף</span><span class="v" style="color:var(--acc)">פעיל</span></div>
+  </div>
+
+  <div class="note">
+    <span class="ttl">למה &quot;שנת הבדק&quot; דחופה</span>
+    לפי <b>חוק המכר (דירות), תשל&quot;ג-1973</b>, לקבלן יש תקופות אחריות שמתחילות ממסירת החזקה, 01.10.2025. חלק מהן <b>פגות אחרי שנה אחת בלבד</b>, למשל סדקים בטיח ובצבע, דלתות וחלונות. כלומר <b>אחרי 01.10.2026 לא נוכל יותר לדרוש מאסום את הליקויים האלה.</b> לכן הבדיקה המקצועית, שאנחנו כבר זכאים לה בחינם, חייבת להתבצע לפני התאריך הזה.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ שאלות ============ -->
+<section id="shealot">
+  <h2><span class="ico">❓</span> שאלות שחוזרות</h2>
+
+  <details>
+    <summary>שילמתי 270 ו-300, אני צריך לשלם אותם שוב</summary>
+    <div class="body"><p><b>לא.</b> שני הסכומים האלה <b>חד פעמיים ולא חוזרים</b>. ה-270 היה גבייה של הוועד הקודם והסבב שלו סגור. ה-300 הוא תשלום שנתי שכבר שולם. <b>התשלום השוטף היחיד הוא 380 ₪ לחודש.</b></p></div>
+  </details>
+
+  <details>
+    <summary>למה 380 ₪ ולא פחות</summary>
+    <div class="body"><p>כי זה מה שכולל <b>הכל</b>, חשמל ציבורי, מעליות, ניקיון 4 ימים בשבוע, גינון, הדברה, ביטוח צד ג&#39;, מהנדס בודק מעליות ומוקד חירום 24/7. בלי חברת אחזקה, הוועד היה צריך לנהל ולשלם כל אחד מהם בנפרד, וזה יוצא יותר יקר ופחות אמין. <b>הסכום ייבחן ויאושר באסיפת דיירים</b>, ואם יוחלט אחרת תיערך התאמה.</p></div>
+  </details>
+
+  <details>
+    <summary>אני שוכר, למה פונים לבעל הדירה</summary>
+    <div class="body"><p>לפי <b>חוק המקרקעין, תשכ&quot;ט-1969</b>, החובה לשלם דמי ועד רובצת על <b>בעל הדירה</b>, גם אם בפועל השוכר משלם. לכן כשיש חוב פתוח, הפנייה הרשמית היא לבעל הדירה. זה לא נגד אף אחד, זה מה שהחוק קובע והוא גם מגן על השוכר.</p></div>
+  </details>
+
+  <details>
+    <summary>איך אני יודע שהכסף לא נעלם</summary>
+    <div class="body"><p>כל שקל בעמוד הזה מקושר למסמך שאתם יכולים לפתוח עכשיו בלחיצה. <b>אין שורה אחת בלי אסמכתא, חוץ ממיגון המעליות של 3,000 ₪ שבוצע בתקופת הוועד הקודם ושהחשבונית שלו נדרשת.</b> בנוסף, <b>הוועד היום בגירעון</b>, כלומר הוצא יותר ממה שנגבה, וההפרש כוסה מכיסו הפרטי של היו&quot;ר. אין כסף שיושב במקום כלשהו.</p></div>
+  </details>
+
+  <details>
+    <summary>איפה אפשר לראות את הכל בפירוט מלא</summary>
+    <div class="body"><p>העמוד הזה הוא תמצית של קובץ מעקב מלא שמנוהל שורה שורה, וכל המסמכים המקוריים שמורים בתיק הבניין. <b>כל דייר זכאי לראות כל מסמך</b>, פשוט לבקש. אין מה להסתיר.</p></div>
+  </details>
+
+  <details>
+    <summary>איך משלמים</summary>
+    <div class="body"><p>בביט או בפייבוקס למספר <b>054-300-0501</b>. חשוב לרשום בהערת התשלום את <b>מספר הדירה</b> ואת מה שהתשלום מכסה, למשל &quot;דירה 12, אוגוסט&quot;.</p></div>
+  </details>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="name">עידן חיים, יו&quot;ר ועד אשכולית 3</div>
+    <div style="margin-top:5px">ועד קבוע נבחר באסיפת דיירים ב-29.04.2026, 6 בעד, 0 נגד, 0 נמנעים</div>
+    <div style="margin-top:9px">
+      טלפון <a href="tel:0543000501">054-300-0501</a> &nbsp;·&nbsp;
+      דוא&quot;ל <a href="mailto:eshkolit3.vaad@gmail.com">eshkolit3.vaad@gmail.com</a>
+    </div>
+    <div style="margin-top:14px;font-size:.78rem;color:#6e7681">
+      מתחם הבוסתנים 1500, אשכולית 3, שדרות &nbsp;·&nbsp; גוש 1083, חלקה 286<br>
+      העמוד אינו מכיל שמות דיירים, טלפונים או פרטי תשלום אישיים, בהתאם לחוק הגנת הפרטיות, תשמ&quot;א-1981
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
