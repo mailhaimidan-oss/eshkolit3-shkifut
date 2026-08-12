@@ -53,6 +53,75 @@ nav a:hover,nav a:active{color:var(--acc);background:#fff;border-color:var(--lin
 
 /* sections */
 section{padding:34px 0 6px}
+
+/* קופת הוועד, נוסח מקורי */
+.kupa{margin-top:18px}
+.kupa .k-card{
+  background:#fff;border:1px solid #e2e8f0;border-radius:14px;
+  padding:22px 24px;margin-bottom:22px;box-shadow:0 1px 3px rgba(15,44,77,.06);
+}
+.kupa .k-card h3{font-size:20px;margin:0 0 4px;color:#0f2c4d;font-weight:700;line-height:1.4}
+.kupa .k-note{color:#64748b;font-size:14px;margin:0 0 16px}
+.kupa table{width:100%;border-collapse:collapse;font-size:15px}
+.kupa th{
+  background:#eaf2fb;color:#0f2c4d;font-weight:700;text-align:right;
+  padding:11px 12px;border-bottom:2px solid #cfe0f2;white-space:nowrap;
+}
+.kupa td{padding:11px 12px;border-bottom:1px solid #eef2f7;vertical-align:top;color:#1f2937}
+.kupa tr:last-child td{border-bottom:none}
+.kupa tbody tr:nth-child(even){background:#fafcfe}
+.kupa .k-num{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.kupa tr.k-tot{background:#eaf7ef !important;font-weight:700}
+.kupa tr.k-tot td{border-top:2px solid #bfe3cd;color:#14532d}
+.kupa .k-neg{color:#b42318}
+.kupa .k-pos{color:#15803d}
+.kupa .k-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700}
+.kupa .k-badge.b-green{background:#e6f6ec;color:#15803d}
+.kupa .k-badge.b-gray{background:#eef2f7;color:#64748b}
+.kupa .k-badge.b-amber{background:#fef4e2;color:#9a6700}
+.kupa .k-apts{color:#334155;font-size:14px;line-height:1.7;margin-top:14px}
+.kupa .k-big{
+  background:#eaf7ef;border:1px solid #bfe3cd;border-radius:14px;padding:20px 24px;margin-bottom:22px;
+}
+.kupa .k-big .lbl{color:#14532d;font-size:15px;margin-bottom:4px}
+.kupa .k-big .val{font-size:34px;font-weight:800;color:#14532d;font-variant-numeric:tabular-nums;line-height:1.2}
+.kupa .k-big .sub2{color:#3f6b50;font-size:14px;margin-top:6px}
+.kupa .k-flag{
+  background:#fff8ec;border:1px solid #f2dcb3;border-radius:12px;
+  padding:16px 20px;color:#6b4e12;font-size:14.5px;line-height:1.8;
+}
+.kupa .k-flag b{color:#8a5a00}
+.kupa .k-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:700px){
+  .kupa .k-card{padding:16px 14px}
+  .kupa table{font-size:13.5px}
+  .kupa th,.kupa td{padding:9px 8px}
+  .kupa .k-card h3{font-size:17px}
+}
+
+/* גלישה בין עמודים */
+.wrap > .hr{display:none}
+.wrap > section{display:none;padding:24px 0 6px}
+.wrap > section.on{display:block;animation:pgin .22s ease both}
+@keyframes pgin{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+nav a.on{color:#fff;background:var(--acc);border-color:var(--acc)}
+nav a.on:hover{color:#fff;background:var(--acc)}
+.pager{
+  display:flex;gap:10px;justify-content:space-between;align-items:stretch;
+  margin:30px 0 34px;padding-top:20px;border-top:1px solid var(--line);
+}
+.pager a{
+  flex:1 1 0;min-width:0;text-decoration:none;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:11px 14px;
+  display:block;color:var(--txt);
+}
+.pager a:hover{border-color:var(--accbd);background:#fbfdff}
+.pager .lbl{display:block;font-size:.74rem;color:var(--dim);font-weight:600;margin-bottom:2px}
+.pager .ttl2{display:block;font-size:.94rem;font-weight:700;color:var(--acc);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pager .nx{text-align:left}
+.pager .sp{flex:1 1 0}
+@media(max-width:520px){.pager .ttl2{font-size:.86rem}}
 h2{
   font-size:1.28rem;font-weight:900;margin-bottom:6px;
   display:flex;align-items:center;gap:9px;
@@ -179,13 +248,14 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="wrap">
     <h1>ועד בית אשכולית 3</h1>
     <div class="sub">מתחם הבוסתנים 1500, שדרות &nbsp;·&nbsp; 9 קומות, 30 דירות, מהן 2 דירות גן</div>
-    <div class="badge">שקיפות כספית מלאה &nbsp;·&nbsp; עודכן 05.08.2026</div>
+    <div class="badge">שקיפות כספית מלאה &nbsp;·&nbsp; עודכן 12.08.2026</div>
   </div>
 </header>
 
 <nav>
   <div class="scroller">
-    <a href="#mazav">תמונת מצב</a>
+    <a href="#kupa">קופת הוועד</a>
+    <a href="#dirotayim">דירותיים</a>
     <a href="#gviot">שלוש הגביות</a>
     <a href="#hotzaot">ההוצאות</a>
     <a href="#hashmal">חוב החשמל</a>
@@ -200,42 +270,353 @@ footer a{color:var(--acc);text-decoration:none}
 
 <div class="wrap">
 
-<!-- ============ תמונת מצב ============ -->
-<section id="mazav">
-  <h2><span class="ico">📊</span> תמונת מצב, כל הכסף במקום אחד</h2>
-  <p class="lead">כל מספר בעמוד הזה מגיע ממסמך. ליד כל סכום שיש עליו אסמכתא, יש כפתור שפותח אותה.</p>
+<!-- ============ קופת ועד אשכולית 3 ============ -->
+<section id="kupa">
+  <h2><span class="ico">🏦</span> קופת ועד אשכולית 3</h2>
+  <p class="lead">מתחם הבוסתנים 1500, שדרות &nbsp;•&nbsp; 30 דירות &nbsp;•&nbsp; עודכן 12.08.2026</p>
 
-  <div class="kpi">
-    <div class="n-gold">
-      <div class="lbl">נגבה מכל הדיירים מאז האכלוס</div>
-      <div class="num">12,510 ₪</div>
-      <div class="foot">שלוש גביות, מ-09.09.2025 עד היום</div>
-    </div>
-    <div class="n-bad">
-      <div class="lbl">שולם בפועל לספקים ולרשויות</div>
-      <div class="num">13,595.96 ₪</div>
-      <div class="foot">חשמל, מעליות, ביוב, אגודה</div>
-    </div>
-    <div class="n-bad">
-      <div class="lbl">מצב נטו של הקופה</div>
-      <div class="num">−1,085.96 ₪</div>
-      <div class="foot">הוצאנו יותר ממה שנגבה</div>
-    </div>
-    <div class="n-warn">
-      <div class="lbl">שילם יו&quot;ר הוועד מכיסו הפרטי</div>
-      <div class="num">7,673.96 ₪</div>
-      <div class="foot">כדי למנוע ניתוק חשמל והשבתת מעליות</div>
-    </div>
+  <div class="kupa">
+
+  <div class="k-card">
+    <h3>גבייה 1 &nbsp;·&nbsp; 270 ₪ לדירה, הוועד הקודם</h3>
+    <p class="k-note">חד פעמי, מ-09.09.2025. מימן מיגון מעליות וביובית.</p>
+    <table>
+      <thead>
+        <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="k-num">270 ₪</td>
+          <td class="k-num">17 דירות</td>
+          <td class="k-num">4,590 ₪</td>
+          <td><span class="k-badge b-green">הסבב נסגר</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="k-apts">
+      <b>שילמו,</b> דירות 1, 7, 9, 10, 11, 12, 14, 17, 21, 22, 23, 24, 25, 26, 27, 28<br>
+      <b>לא שילמו,</b> דירות 3, 8, 13, 18 &nbsp;·&nbsp; <span class="k-neg">חוב 1,080 ₪</span><br>
+      <b>פטורות,</b> דירות 4, 15, לא היו בעלים ב-09.2025 &nbsp;·&nbsp; <b>לברר,</b> דירה 16
+    </p>
   </div>
 
-  <div class="note ok">
-    <span class="ttl">✅ אין בקופה כסף עודף, ואף אגורה לא הלכה לאיבוד</span>
-    כל שקל שנגבה מהדיירים יצא לספק חיצוני עם חשבונית או קבלה. <b>יו&quot;ר הוועד אינו מקבל ואינו מבקש שכר או תמורה כלשהי</b> על ניהול הוועד.
+  <div class="k-card">
+    <h3>גבייה 2 &nbsp;·&nbsp; 300 ₪ לדירה, שנתי</h3>
+    <p class="k-note">חד פעמי, 02.07 עד 09.08.2026. מימן את האגודה לתרבות הדיור, והיתרה לחשמל ציבורי.</p>
+    <table>
+      <thead>
+        <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="k-num">300 ₪</td>
+          <td class="k-num">17 דירות</td>
+          <td class="k-num">5,100 ₪</td>
+          <td><span class="k-badge b-amber">בגבייה</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="k-apts">
+      <b>שילמו,</b> דירות 4, 7, 9, 10, 11, 12, 14, 18, 21, 22, 23, 24, 25, 26, 27, 28<br>
+      <b>לא שילמו,</b> דירות 1, 3, 8, 13, 15, 17 &nbsp;·&nbsp; <span class="k-neg">חוב 1,800 ₪</span><br>
+      <b>לברר,</b> דירה 16
+    </p>
+  </div>
+
+  <div class="k-card">
+    <h3>גבייה 3 &nbsp;·&nbsp; 380 ₪ לדירה, ועד חודשי אוגוסט 2026</h3>
+    <p class="k-note">חודשי. כל הסכום עובר לדירותיים, שמשלמת מתוכו חשמל ציבורי, מעליות שינדלר, ניקיון, גינון, הדברה וביטוח. <b>לא נשאר בקופת הבניין.</b></p>
+    <table>
+      <thead>
+        <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="k-num">380 ₪</td>
+          <td class="k-num">16 דירות</td>
+          <td class="k-num">6,080 ₪</td>
+          <td><span class="k-badge b-amber">6 דירות חייבות</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="k-apts">
+      <b>שילמו,</b> דירות 4, 7, 10, 11, 12, 14, 16, 17, 18, 21, 22, 23, 24, 25, 26, 28<br>
+      <b>לא שילמו,</b> דירות 1, 3, 8, 9, 13, 27 &nbsp;·&nbsp; <span class="k-neg">חוב 2,280 ₪, דירותיים גובה</span><br>
+      <b>פטורה,</b> דירה 15, נכנסים 27-28.08
+    </p>
+  </div>
+
+  <div class="k-card">
+    <h3>מה יצא מהקופה עד היום</h3>
+    <p class="k-note">כל ההוצאות מאז האכלוס, 01.10.2025.</p>
+    <div class="k-scroll"><table>
+      <thead>
+        <tr><th>תאריך</th><th>למי</th><th>על מה</th><th>סכום</th><th>שולם ע&quot;י</th><th>מקור מימון</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>לא ידוע</td><td>לא ידוע</td><td>מיגון מעליות</td>
+          <td class="k-num k-neg">3,000 ₪</td><td>הוועד הקודם</td><td>גביית ה-270</td>
+        </tr>
+        <tr>
+          <td>24.06.2026</td><td>עמית אינסטלציה וגרירה</td><td>פתיחת ביוב, ביובית, חשבונית 2322</td>
+          <td class="k-num k-neg">1,062 ₪</td><td>הוועד הקודם</td><td>גביית ה-270</td>
+        </tr>
+        <tr>
+          <td>02.07.2026</td><td>האגודה לתרבות הדיור</td><td>דמי חברות שנתיים, קבלה 217003296</td>
+          <td class="k-num k-neg">1,860 ₪</td><td>יו&quot;ר הוועד, מכיסו</td><td>גביית ה-300</td>
+        </tr>
+        <tr>
+          <td>02.08.2026</td><td>שינדלר ישראל</td><td>על חשבון חוב מעליות, אסמכתא 011832</td>
+          <td class="k-num k-neg">5,000 ₪</td><td>יו&quot;ר הוועד, מכיסו</td><td>דירותיים מחזירה</td>
+        </tr>
+        <tr>
+          <td>02.08.2026</td><td>חברת החשמל</td><td>חשמל ציבורי לבניין, קבלה 300070373324</td>
+          <td class="k-num k-neg">2,673.96 ₪</td><td>יו&quot;ר הוועד, מכיסו</td><td>דירותיים מחזירה</td>
+        </tr>
+        <tr class="k-tot">
+          <td colspan="3">סה&quot;כ יצא</td><td class="k-num">13,595.96 ₪</td><td colspan="2"></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="k-card">
+    <h3>כמה כסף נשאר בקופה</h3>
+    <p class="k-note">אחרי שדירותיים מחזירה ליו&quot;ר הוועד את החשמל והמעליות לפי נספח ב&#39; סעיף 4.4.</p>
+    <table>
+      <thead>
+        <tr><th>סעיף</th><th>סכום</th><th>הסבר</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>נטו סבב ה-270</td><td class="k-num k-pos">528 ₪</td>
+          <td>4,590 נגבו מול 4,062 הוצאות</td>
+        </tr>
+        <tr>
+          <td>גביית ה-300 השנתית</td><td class="k-num k-pos">5,100 ₪</td>
+          <td>17 דירות</td>
+        </tr>
+        <tr class="k-tot">
+          <td>סה&quot;כ בקופה</td><td class="k-num">5,058 ₪</td><td>הכסף שיושב בביט ובפייבוקס</td>
+        </tr>
+        <tr>
+          <td>פחות חוב ליו&quot;ר הוועד, האגודה לתרבות הדיור</td><td class="k-num k-neg">(1,860) ₪</td>
+          <td>לא מכוסה בהסכם דירותיים, יימשך מהפייבוקס</td>
+        </tr>
+        <tr class="k-tot">
+          <td>נשאר בקופה, נטו</td><td class="k-num">3,198 ₪</td>
+          <td>5,058 פחות 1,860</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-big">
+    <div class="lbl">הכסף שנשאר לבניין, נטו</div>
+    <div class="val">3,198 ₪</div>
+    <div class="sub2">אחרי כל ההוצאות ואחרי החזר החוב ליו&quot;ר הוועד. גביית אוגוסט לא נספרת, היא עוברת במלואה לדירותיים.</div>
+  </div>
+
+  <div class="k-card">
+    <h3>שתי ההעברות מול דירותיים</h3>
+    <p class="k-note">שתי תנועות נפרדות, בלי קיזוז, כדי שלכל כיוון יהיה תיעוד משלו. <b>דירותיים משלמת לעידן, יו&quot;ר הוועד, 7,673.96 ₪ שהוא שילם מכיסו לשינדלר ולחברת החשמל.</b></p>
+    <table>
+      <thead>
+        <tr><th>כיוון</th><th>מה</th><th>סכום</th><th>הסבר</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="k-badge b-gray">עידן, יו&quot;ר הוועד ← דירותיים</span></td>
+          <td>גביית 380 ₪ לאוגוסט, 16 דירות</td>
+          <td class="k-num k-neg">6,080 ₪</td>
+          <td>דירותיים מנפיקה קבלה לכל דייר ששילם, וקבלה מרוכזת לנציגות, סעיף 5.2</td>
+        </tr>
+        <tr>
+          <td><span class="k-badge b-green">דירותיים ← עידן, יו&quot;ר הוועד</span></td>
+          <td>שינדלר, ששולם מהכיס</td>
+          <td class="k-num k-pos">5,000 ₪</td>
+          <td>קבלה 36044219, אסמכתא 011832</td>
+        </tr>
+        <tr>
+          <td><span class="k-badge b-green">דירותיים ← עידן, יו&quot;ר הוועד</span></td>
+          <td>חברת החשמל, ששולם מהכיס</td>
+          <td class="k-num k-pos">2,673.96 ₪</td>
+          <td>קבלה 300070373324</td>
+        </tr>
+        <tr class="k-tot">
+          <td></td><td>סה&quot;כ שדירותיים משלמת לעידן, יו&quot;ר הוועד, סעיף 4.4</td>
+          <td class="k-num">7,673.96 ₪</td><td>תוך 14 יום מכניסת ההסכם לתוקף</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="k-apts">
+      <b>לטיפול בנפרד,</b> החזר 240 ₪ לדירה 11, וגבייה של 2,280 ₪ מ-6 הדירות שטרם שילמו, שדירותיים מבצעת לפי סעיף 5.4.
+    </p>
+  </div>
+
+  <div class="k-card">
+    <h3>חובות עבר שדירותיים לוקחת על עצמה</h3>
+    <p class="k-note">נספח ב&#39; סעיף 4.1. הסכום המחייב ייקבע לפי כרטסות הספקים, לא לפי אומדן.</p>
+    <table>
+      <thead>
+        <tr><th>ספק</th><th>יתרה פתוחה</th><th>הערה</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>שינדלר ישראל, מעליות</td><td class="k-num">13,312.73 ₪</td><td>אחרי התשלום של 5,000</td></tr>
+        <tr><td>חברת החשמל, חשמל ציבורי</td><td class="k-num">5,601.57 ₪</td><td>חשבון חוזה 348912059</td></tr>
+        <tr class="k-tot"><td>סה&quot;כ</td><td class="k-num">18,914.30 ₪</td><td>מול אומדן 24,438 ₪ שנמסר ב-11.08</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-flag">
+    <b>שלושה דברים לסגור,</b><br>
+    1. הפייבוקס מראה 1,027 ₪ בלבד. צריך להצליב מול הביט ולוודא שסך הכסף המוחזק תואם ל-12,088 ₪, זה 5,628 קופה + 6,080 אוגוסט + 380 ₪ ששולמו ביתר בדירה 25, שם גם הבעלים וגם השוכרת שילמו את דמי אוגוסט. ה-380 של צד הבעלים חוזר אליו.<br>
+    2. דירה 11 מנהלת את קופת הוועד. מתוך 380 ₪ עוברים 140 ₪ לדירותיים, ו-240 ₪ נשארים בבניין כקופה קטנה חודשית, לפי סעיף 2.11א להסכם. הסידור צריך להירשם בפרוטוקול אסיפת דיירים, וכל תנועה בקופה מתועדת.<br>
+    3. חוב דיירים פתוח בסך <b>4,590 ₪ ב-9 דירות</b>. מתוכו 2,280 ₪ דמי אוגוסט שדירותיים גובה, ו-2,310 ₪ של ה-270 וה-300 שהוועד גובה בעצמו.
+  </div>
+
   </div>
 
   <div class="note warn">
-    <span class="ttl">⚠ למה הקופה בגירעון</span>
+    <span class="ttl">⚠ למה הקופה הייתה בגירעון</span>
     לא בגלל בזבוז. בגלל ש<b>חברת התחזוקה לוטם גבתה מהדיירים כספי אחזקה ולא העבירה אותם לספקים</b>. המעליות הושבתו והחשמל הגיע לשלוש התראות ניתוק, ויו&quot;ר הוועד שילם 7,673.96 ₪ מכיסו כדי להחזיר אותם. הכסף הזה נדרש בחזרה, ראה <a href="#lotem" style="color:var(--acc)">התיק מול לוטם</a>.
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============ דירותיים ============ -->
+<section id="dirotayim">
+  <h2><span class="ico">🧹</span> דירותיים, מה בדיוק אנחנו מקבלים</h2>
+  <p class="lead">חברת האחזקה החדשה של הבניין, מ-01.08.2026. כאן כתוב שורה שורה מה היא מחויבת לתת לנו, כדי שכל אחד ידע למה לצפות ומתי להרים דגל.</p>
+
+  <div class="kupa">
+
+  <div class="k-card">
+    <h3>1. אנחנו לא כבולים אליהם &nbsp;🙂</h3>
+    <p class="k-note">סעיף 3.2 להסכם.</p>
+    <table>
+      <tbody>
+        <tr><td><b>60 הימים הראשונים</b></td><td>תקופת כניסה, שבה הם נכנסים לבניין ולומדים אותו</td></tr>
+        <tr><td><b>אחרי 60 יום</b></td><td>כל צד רשאי לסיים את ההתקשרות בהודעה בכתב <b>30 יום מראש</b>, מכל סיבה שהיא</td></tr>
+        <tr><td><b>חשוב לדעת</b></td><td>הזכות הזאת עובדת <b>לשני הכיוונים</b>, גם הם יכולים לעזוב אותנו. לכן נהיה הוגנים ונעימים איתם, בדיוק כמו שאנחנו מצפים שיתנהגו אלינו 🙂</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>2. הם מסדירים את כל חובות העבר של הבניין</h3>
+    <p class="k-note">נספח ב&#39; סעיפים 4.1 עד 4.6. מדובר בחוב שנוצר בתקופת חברת האחזקה הקודמת, לשינדלר ולחברת החשמל.</p>
+    <table>
+      <tbody>
+        <tr><td><b>מה הם עושים</b></td><td>משלמים <b>מכספם</b> את מלוא יתרות החוב לשינדלר ולחברת החשמל</td></tr>
+        <tr><td><b>איך זה נרשם</b></td><td>הסכום נרשם כיתרת חוב שלנו כלפיהם, ו<b>נגרעים ממנה 500 ₪ בכל חודש</b> שההסכם בתוקף, עד שהיא מתאפסת</td></tr>
+        <tr><td><b>אם נעזוב באמצע</b></td><td>נחזיר להם <b>רק את החלק שטרם נגרע</b>. בלי ריבית, בלי קנס, בלי שום תוספת</td></tr>
+      </tbody>
+    </table>
+    <div class="k-big" style="margin-top:16px;margin-bottom:0">
+      <div class="lbl">דוגמה פשוטה למי שרוצה להבין את המנגנון</div>
+      <div class="sub2" style="margin-top:8px;font-size:15px;color:#14532d;line-height:1.9">
+        נניח שהחוב הוא 30,000 ₪ והם שילמו אותו. כל חודש נגרעים 500 ₪.<br>
+        אחרי חודשיים נגרעו 1,000 ₪, ואם באותו רגע נחליט שאנחנו לא מרוצים ועוזבים,
+        <b>נחזיר להם 29,000 ₪ בלבד</b>.<br>
+        כלומר על כל חודש שהם נותנים לנו שירות, החוב שלנו קטן ב-500 ₪.
+      </div>
+    </div>
+    <p class="k-apts">הסכום הסופי ייקבע לפי הכרטסות הרשמיות של הספקים ולא לפי אומדן, וייחתם בנספח מספרי תוך 14 יום.</p>
+  </div>
+
+  <div class="k-card">
+    <h3>3. תשלום לספקים תוך 7 ימי עסקים</h3>
+    <p class="k-note">סעיף 5.3א, התוספת שהכנסנו להסכם. זה בדיוק הכשל שהפיל אותנו אצל חברת האחזקה הקודמת.</p>
+    <table>
+      <tbody>
+        <tr><td><b>ההתחייבות</b></td><td>כל חשבונית של <b>חברת החשמל</b> ושל <b>שינדלר מעליות</b> תשולם תוך <b>7 ימי עסקים</b> ממועד קבלתה, ולא יאוחר ממועד הפירעון הנקוב בה</td></tr>
+        <tr><td><b>שקיפות מלאה</b></td><td>לוועד יש <b>הרשאת צפייה ישירה</b> מול שינדלר ומול חברת החשמל, כולל האזור האישי והאפליקציה, לכל חשבונות הבניין והחניון, גם אחרי סיום ההתקשרות. סעיף 7.10</td></tr>
+        <tr><td><b>למה זה קריטי</b></td><td>לא ניתן יותר למצב שבו נגבה מאיתנו כסף והחשבון לא שולם. אנחנו רואים את היתרה בעצמנו, בזמן אמת</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>4. ניקיון, 4 פעמים בשבוע</h3>
+    <table>
+      <tbody>
+        <tr><td><b>לובי הקומות</b></td><td><b>פעמיים בשבוע</b>, ראשון ורביעי</td></tr>
+        <tr><td><b>חדר מדרגות</b></td><td>פעם בשבוע, שלישי</td></tr>
+        <tr><td><b>לובי ראשי</b></td><td>פעם בשבוע, שישי</td></tr>
+        <tr><td><b>סטנדרט העבודה</b></td><td>כל <b>שתי קומות</b> מחליפים דלי, סמרטוט וחומרי ניקוי. אם מישהו רואה שזה לא קורה, <b>לעדכן אותי מיד</b> ואני מטפל</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>5. מצלמות אבטחה</h3>
+    <table>
+      <tbody>
+        <tr><td><b>כמה</b></td><td><b>5 מצלמות</b> במקום 4</td></tr>
+        <tr><td><b>איפה</b></td><td>אחת מהן מופנית <b>לכיוון הפחים</b>, בדיוק כפי שביקשתם</td></tr>
+        <tr><td><b>אישורים</b></td><td>המיקומים לפי אישור הוועד ובתיאום עם דירות הגן</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>6. ביטוח</h3>
+    <table>
+      <tbody>
+        <tr><td><b>ביטוח צד ג&#39;</b></td><td>כלול, ו<b>מכסה גם את חברי הוועד</b></td></tr>
+        <tr><td><b>מה עוד</b></td><td>לדירותיים ביטוח אחריות מקצועית וחבות מעבידים</td></tr>
+        <tr><td><b>מה זה נותן לנו</b></td><td>אם מישהו נפגע ברכוש המשותף, יש כתובת ביטוחית. חברי הוועד לא חשופים אישית</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>7. כל השאר שכלול ב-380 ₪</h3>
+    <p class="k-note">מתוך נספח א&#39; ומתוך ההערות שנחתמו כנספח ב&#39;.</p>
+    <table>
+      <thead><tr><th>מה</th><th>מה בדיוק מקבלים</th></tr></thead>
+      <tbody>
+        <tr><td>חשמל ציבורי</td><td>דירותיים משלמת את חשבון החשמל של הרכוש המשותף</td></tr>
+        <tr><td>מעליות</td><td>התשלום השוטף לשינדלר, וטיפול בתקלות</td></tr>
+        <tr><td>מהנדס מעליות</td><td>בדיקה של מהנדס מעליות מוסמך, פעמיים בשנה</td></tr>
+        <tr><td>אחזקה שוטפת</td><td>מנהל אחזקה עובר בבניין <b>כל שבוע</b>, ותקלות קלות מטופלות <b>ללא עלות ביקור</b></td></tr>
+        <tr><td>גינון</td><td>גנן מקצועי, פעמיים בחודש</td></tr>
+        <tr><td>הדברה</td><td>מדביר מורשה, פעם בשנה</td></tr>
+        <tr><td>מוקד ואפליקציה</td><td>אפליקציה לכל דייר לפתיחת קריאה, מוקד טלפוני בימים א&#39; עד ה&#39; 08:00 עד 17:00, ו<b>מוקד חירום 24/7</b></td></tr>
+        <tr><td>זמני טיפול</td><td>תקלה דחופה, פיצוץ מים, קצר, הצפה או סתימה, <b>עד 3 שעות</b>. תקלה רגילה, עד 72 שעות</td></tr>
+        <tr><td>גבייה וקבלות</td><td>גבייה בהוראת קבע ובאשראי <b>ללא עמלת סליקה</b>, ו<b>קבלה לכל דייר</b> על כל תשלום</td></tr>
+        <tr><td>הכסף נשאר שלנו</td><td>הכספים שנגבים מועברים <b>לחשבון הוועד</b>, עד ה-15 לחודש שאחרי</td></tr>
+        <tr><td>שקיפות</td><td>דוח גבייה והוצאות זמין לוועד בכל עת באפליקציה, וחשבונית חודשית שמפרטת כמה שולם לחשמל ולמעלית</td></tr>
+        <tr><td>מחיר נעול</td><td>סעיף 7.4, דמי הניהול נשארים <b>380 ₪ קבוע</b> כל עוד לא שונה התקציב בהסכמה. אין הצמדה ואין עדכון חד צדדי</td></tr>
+        <tr><td>ליווי משפטי</td><td>עזרה בייצוג משפטי לוועד ובהתנהלות מול הקבלן</td></tr>
+        <tr><td>תוספות ללובי</td><td>עציצים, מפיץ ריח, טלוויזיה עם הודעות הוועד, ווילון בדלת הראשית</td></tr>
+        <tr><td>בלתי צפוי</td><td>240 ₪ בחודש מהתקציב מיועדים לתקלות משתנות ולגיבוי תקציבי</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-card">
+    <h3>8. מה <u>לא</u> נכנס לזה, וחשוב שיהיה ברור</h3>
+    <table>
+      <tbody>
+        <tr><td><b>ליקויי בנייה</b></td><td>באחריות <b>אסום</b>, הקבלן, במסגרת חוק המכר (דירות). לא באחריות חברת האחזקה. סדקים, איטום, ריצוף, שוחות ביוב, מדרכות</td></tr>
+        <tr><td><b>ביקורות מערכות</b></td><td>גילוי אש, ספרינקלרים, משאבות וכיבוי אש, <b>כרגע באחריות הקבלן</b> כי הבניין בתקופת בדק. ביום שהאחריות תסתיים, זה ייכנס לתקציב</td></tr>
+        <tr><td><b>חשמל, הערכה</b></td><td>סכום החשמל בתקציב הוא הערכה. חריגה משמעותית תדווח לוועד ותטופל מול סעיף הבלתי צפוי</td></tr>
+        <tr><td><b>מים וארנונה</b></td><td>לא נכללים בתקציב. כל דייר משלם על דירתו ישירות</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="k-flag">
+    <b>שתי בקשות מכם,</b><br>
+    1. פותחים קריאות <b>באפליקציה</b> ולא רק בקבוצה. קריאה באפליקציה מתועדת, ויש לה שעון. הודעה בקבוצה נעלמת.<br>
+    2. אם משהו לא בוצע כמו שכתוב כאן, ניקיון שלא נעשה, תקלה שלא טופלה בזמן, <b>מעדכנים אותי מיד</b>. יש לנו הסכם עם שיניים, אבל הוא שווה רק אם אנחנו אוכפים אותו.
+  </div>
+
   </div>
 </section>
 
@@ -249,16 +630,16 @@ footer a{color:var(--acc);text-decoration:none}
   <!-- 270 -->
   <div class="card">
     <h3>1. גבייה של 270 ₪ <span class="tag once">חד פעמי, לא חוזר</span></h3>
-    <div class="meta">נגבתה בתקופת הוועד הקודם, החל מ-09.09.2025 &nbsp;·&nbsp; שילמו 15 דירות</div>
-    <div class="money" style="color:var(--gold)">4,050 ₪ נגבו</div>
+    <div class="meta">נגבתה בתקופת הוועד הקודם, החל מ-09.09.2025 &nbsp;·&nbsp; שילמו 17 דירות</div>
+    <div class="money" style="color:var(--gold)">4,590 ₪ נגבו</div>
     <div class="rows">
       <div class="row"><span class="k">מיגון מעליות</span><span class="v">3,000 ₪</span></div>
       <div class="row"><span class="k">ביובית, פתיחת סתימת ביוב, 900 ₪ + 162 מע&quot;מ 18%</span><span class="v">1,062 ₪</span></div>
       <div class="row tot"><span class="k">סה&quot;כ הוצאה</span><span class="v">4,062 ₪</span></div>
-      <div class="row neg"><span class="k">נטו הסבב</span><span class="v">−12 ₪</span></div>
+      <div class="row pos"><span class="k">נטו הסבב, נכנס לקופת הבניין</span><span class="v">528 ₪</span></div>
     </div>
     <div class="note ok" style="margin:11px 0 0">
-      <b>15 דירות שילמו את ה-270 ₪, ושבע לא.</b> ההוצאה כוסתה, אבל <b>מי שלא שילם עדיין נדרש לשלם</b>, כי לפי חוק המקרקעין, תשכ&quot;ט-1969, <b>אסור לוועד להפלות בין דיירים בגבייה</b>. פטור לשבע דירות הוא הפליה נגד 15 הדירות ששילמו. <b>הכסף שייגבה מכאן והלאה נכנס לקופת הבניין ומוצג כאן</b>, הוא לא נגבה פעמיים ולא הולך לאיבוד.
+      <b>17 דירות שילמו את ה-270 ₪, ושלוש לא.</b> ההוצאה כוסתה, אבל <b>מי שלא שילם עדיין נדרש לשלם</b>, כי לפי חוק המקרקעין, תשכ&quot;ט-1969, <b>אסור לוועד להפלות בין דיירים בגבייה</b>. פטור לשלוש הדירות האלה הוא הפליה נגד 17 הדירות ששילמו. <b>הכסף שייגבה מכאן והלאה נכנס לקופת הבניין ומוצג כאן</b>, הוא לא נגבה פעמיים ולא הולך לאיבוד.
     </div>
     <div class="docs">
       <a class="doc" href="docs/plumbing-invoice-2322.jpeg" target="_blank" rel="noopener">📄 חשבונית מס/קבלה 2322, ביובית 1,062 ₪</a>
@@ -269,12 +650,12 @@ footer a{color:var(--acc);text-decoration:none}
   <!-- 300 -->
   <div class="card">
     <h3>2. גבייה של 300 ₪ <span class="tag once">חד פעמי, שנתי</span></h3>
-    <div class="meta">נגבתה 02 עד 08.07.2026 &nbsp;·&nbsp; שילמו 13 דירות</div>
-    <div class="money" style="color:var(--gold)">3,900 ₪ נגבו</div>
+    <div class="meta">נגבתה 02.07 עד 12.08.2026 &nbsp;·&nbsp; שילמו 17 דירות</div>
+    <div class="money" style="color:var(--gold)">5,100 ₪ נגבו</div>
     <div class="rows">
       <div class="row"><span class="k">האגודה לתרבות הדיור, מנוי לשנתיים מראש</span><span class="v">1,860 ₪</span></div>
-      <div class="row"><span class="k">היתרה, לכיסוי חוב החשמל הציבורי של הבניין</span><span class="v">2,040 ₪</span></div>
-      <div class="row tot"><span class="k">סה&quot;כ</span><span class="v">3,900 ₪</span></div>
+      <div class="row"><span class="k">היתרה, לכיסוי חוב החשמל הציבורי של הבניין</span><span class="v">3,240 ₪</span></div>
+      <div class="row tot"><span class="k">סה&quot;כ</span><span class="v">5,100 ₪</span></div>
     </div>
     <p><b>מה זה האגודה לתרבות הדיור.</b> גוף שנותן לוועד ייעוץ משפטי חינם, סיוע מול קבלן, טיפול בדיירים שמסרבים לשלם, וטפסים רשמיים. <b>המחיר הוא 31 ₪ לדירה לשנה. שולם לשנתיים מראש בכוונה</b>, 31 × 30 דירות × 2 שנים = 1,860 ₪ בדיוק, כי זה התנאי לקבל <b>&quot;שנת בדק&quot; במתנה</b>, כלומר בדיקת ליקויי בנייה מקצועית מול הקבלן אסום בלי לשלם עליה.</p>
     <div class="docs">
@@ -286,10 +667,10 @@ footer a{color:var(--acc);text-decoration:none}
   <!-- 380 -->
   <div class="card">
     <h3>3. דמי ועד של 380 ₪ <span class="tag month">חודשי</span></h3>
-    <div class="meta">החל מאוגוסט 2026 &nbsp;·&nbsp; שילמו עד כה 12 דירות</div>
-    <div class="money" style="color:var(--gold)">4,560 ₪ נגבו לאוגוסט</div>
-    <p><b>זה התשלום השוטף היחיד בבניין.</b> הוא מחליף את דמי האחזקה שנגבו עד כה על ידי לוטם, והוא יועבר במלואו לחברת האחזקה החדשה שתיבחר. עד לחתימה על ההסכם, הכספים נשארים בקופת הוועד.</p>
-    <p style="color:var(--dim);font-size:.87rem">מה שחברת האחזקה מספקת תמורת הסכום, לפי ההצעות שעל השולחן:</p>
+    <div class="meta">החל מאוגוסט 2026 &nbsp;·&nbsp; שילמו עד כה 16 דירות</div>
+    <div class="money" style="color:var(--gold)">6,080 ₪ נגבו לאוגוסט</div>
+    <p><b>זה התשלום השוטף היחיד בבניין.</b> הוא מחליף את דמי האחזקה שנגבו עד כה על ידי לוטם. ההסכם עם חברת האחזקה החדשה נחתם, ומלוא הכסף שנגבה לאוגוסט מועבר אליה, כנגד קבלה לכל דייר ששילם.</p>
+    <p style="color:var(--dim);font-size:.87rem">מה שחברת האחזקה מספקת תמורת הסכום:</p>
     <div class="rows">
       <div class="row"><span class="k">חשמל ציבורי לבניין</span><span class="v">כלול</span></div>
       <div class="row"><span class="k">מעליות שינדלר, תשלום שוטף ותקלות</span><span class="v">כלול</span></div>
@@ -363,7 +744,7 @@ footer a{color:var(--acc);text-decoration:none}
 
   <div class="note">
     <span class="ttl">איך זה מתחבר לגבייה</span>
-    נגבה <b>12,510 ₪</b>, הוצא <b>13,595.96 ₪</b>. הפער, <b>1,085.96 ₪</b>, כוסה מכיסו הפרטי של יו&quot;ר הוועד ביחד עם עוד סכומים שנדרשים בהשבה. <b>אין כסף שיושב בקופה בלי הסבר.</b>
+    נגבה <b>15,770 ₪</b>, הוצא <b>13,595.96 ₪</b>. מתוך ההוצאות, <b>7,673.96 ₪ שולמו מכיסו הפרטי של יו&quot;ר הוועד</b> ומוחזרים לו על ידי חברת האחזקה. <b>אין כסף שיושב בקופה בלי הסבר.</b>
   </div>
 </section>
 
@@ -562,9 +943,9 @@ footer a{color:var(--acc);text-decoration:none}
   <h2><span class="ico">📌</span> חוב פתוח של דיירים</h2>
 
   <div class="kpi">
-    <div class="n-warn"><div class="lbl">דמי אוגוסט שטרם שולמו</div><div class="num">3,800 ₪</div><div class="foot">10 דירות × 380 ₪</div></div>
-    <div class="n-warn"><div class="lbl">התשלום השנתי שטרם שולם</div><div class="num">2,700 ₪</div><div class="foot">9 דירות × 300 ₪</div></div>
-    <div class="n-bad"><div class="lbl">סה&quot;כ חוב פתוח</div><div class="num">6,500 ₪</div><div class="foot">מ-13 דירות</div></div>
+    <div class="n-warn"><div class="lbl">דמי אוגוסט שטרם שולמו</div><div class="num">2,280 ₪</div><div class="foot">6 דירות × 380 ₪</div></div>
+    <div class="n-warn"><div class="lbl">התשלום השנתי והחד פעמי שטרם שולמו</div><div class="num">2,310 ₪</div><div class="foot">5 דירות × 300 ₪ ועוד 3 דירות × 270 ₪</div></div>
+    <div class="n-bad"><div class="lbl">סה&quot;כ חוב פתוח</div><div class="num">4,590 ₪</div><div class="foot">מ-9 דירות</div></div>
   </div>
 
   <div class="note ok">
@@ -585,7 +966,7 @@ footer a{color:var(--acc);text-decoration:none}
   <h2><span class="ico">🎯</span> מה הלאה</h2>
   <div class="rows">
     <div class="row"><span class="k"><b>לכנס אסיפת דיירים</b> לאישור גובה דמי הוועד ולאישור ההתקשרות עם חברת האחזקה החדשה, עם פרוטוקול חתום</span><span class="v" style="color:var(--warn)">דחוף</span></div>
-    <div class="row"><span class="k"><b>לחתום עם חברת האחזקה החדשה</b>, כולל התחייבות להשיב 7,673.96 ₪ תוך 14 יום</span><span class="v" style="color:var(--warn)">בתהליך</span></div>
+    <div class="row"><span class="k"><b>לקבל מחברת האחזקה את 7,673.96 ₪</b> שיו&quot;ר הוועד שילם מכיסו לשינדלר ולחברת החשמל, תוך 14 יום לפי ההסכם</span><span class="v" style="color:var(--warn)">ממתין</span></div>
     <div class="row"><span class="k"><b>לפתוח חשבון בנק נפרד לוועד</b> עם חתימה כפולה, כדי להפסיק לערבב כספי ועד עם כספים אישיים</span><span class="v" style="color:var(--warn)">לאסיפה</span></div>
     <div class="row"><span class="k"><b>לתבוע מלוטם את כל הכסף</b> שגבתה ולא העבירה לספקים, כולל יתרת 13,312.73 ₪ לשינדלר</span><span class="v" style="color:var(--acc)">אצל עו&quot;ד</span></div>
     <div class="row"><span class="k"><b>לממש את &quot;שנת הבדק&quot; במתנה</b> מהאגודה לתרבות הדיור, בדיקת ליקויי בנייה מקצועית מול הקבלן אסום</span><span class="v" style="color:var(--bad)">עד 01.10.2026</span></div>
@@ -635,6 +1016,8 @@ footer a{color:var(--acc);text-decoration:none}
   </details>
 </section>
 
+</div>
+
 <footer>
   <div class="wrap">
     <div class="name">עידן חיים, יו&quot;ר ועד אשכולית 3</div>
@@ -649,6 +1032,44 @@ footer a{color:var(--acc);text-decoration:none}
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var wrap = document.querySelector('body > .wrap');
+  var pages = [].slice.call(wrap.children).filter(function(el){ return el.tagName === 'SECTION'; });
+  var links = [].slice.call(document.querySelectorAll('nav .scroller a'));
+  var names = {};
+  links.forEach(function(a){ names[a.getAttribute('href').slice(1)] = a.textContent.trim(); });
+
+  pages.forEach(function(sec, i){
+    var prev = pages[i-1], next = pages[i+1];
+    var p = document.createElement('div');
+    p.className = 'pager';
+    p.innerHTML =
+      (prev ? '<a href="#'+prev.id+'"><span class="lbl">הקודם</span><span class="ttl2">'+(names[prev.id]||'')+' ›</span></a>' : '<span class="sp"></span>') +
+      (next ? '<a class="nx" href="#'+next.id+'"><span class="lbl">הבא</span><span class="ttl2">‹ '+(names[next.id]||'')+'</span></a>' : '<span class="sp"></span>');
+    sec.appendChild(p);
+  });
+
+  function show(id){
+    var target = document.getElementById(id);
+    if(!target || pages.indexOf(target) === -1){ target = pages[0]; id = target.id; }
+    pages.forEach(function(s){ s.classList.toggle('on', s === target); });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#'+id); });
+    var act = document.querySelector('nav .scroller a.on');
+    if(act && act.scrollIntoView){ act.scrollIntoView({block:'nearest', inline:'center'}); }
+    document.title = (names[id] ? names[id]+', ' : '') + 'ועד בית אשכולית 3';
+  }
+
+  function go(){
+    show(location.hash.slice(1));
+    window.scrollTo({top:0, behavior:'auto'});
+  }
+
+  window.addEventListener('hashchange', go);
+  go();
+})();
+</script>
 
 </body>
 </html>
