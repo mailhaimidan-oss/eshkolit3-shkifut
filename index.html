@@ -240,6 +240,25 @@ footer{
 footer .name{color:var(--txt);font-weight:700;font-size:.95rem}
 footer a{color:var(--acc);text-decoration:none}
 .hr{height:1px;background:var(--line);margin:30px 0 0}
+
+/* ===== מובייל, טבלאות הסבבים ותיקון שבירות, 12.08.2026 ===== */
+.kupa .k-wide{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #e8eef6;border-radius:12px}
+.kupa .k-wide table{min-width:540px;margin:0}
+.kupa .k-apts{overflow-wrap:anywhere}
+@media(max-width:640px){
+  .kupa table.k-round thead{display:none}
+  .kupa table.k-round tbody tr{display:block;background:#fafcfe;border:1px solid #e8eef6;border-radius:12px;overflow:hidden}
+  .kupa table.k-round td{display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:10px 12px;border-bottom:1px solid #edf2f8;white-space:normal}
+  .kupa table.k-round td:last-child{border-bottom:none}
+  .kupa table.k-round td::before{content:attr(data-l);color:#64748b;font-weight:700;font-size:13px;flex:0 0 auto}
+  .kupa .k-card{padding:15px 13px}
+  .kupa .k-big{padding:16px 15px}
+  .kupa .k-big .val{font-size:27px}
+  .kupa .k-flag{padding:14px 15px;font-size:14px}
+  .kupa .k-apts{font-size:13.5px}
+}
+html,body{max-width:100%;overflow-x:hidden}
 </style>
 </head>
 <body>
@@ -280,16 +299,16 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>גבייה 1 &nbsp;·&nbsp; 270 ₪ לדירה, הוועד הקודם</h3>
     <p class="k-note">חד פעמי, מ-09.09.2025. מימן מיגון מעליות וביובית.</p>
-    <table>
+    <table class="k-round">
       <thead>
         <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td class="k-num">270 ₪</td>
-          <td class="k-num">17 דירות</td>
-          <td class="k-num">4,590 ₪</td>
-          <td><span class="k-badge b-green">הסבב נסגר</span></td>
+          <td data-l="סכום לדירה" class="k-num">270 ₪</td>
+          <td data-l="כמה שילמו" class="k-num">17 דירות</td>
+          <td data-l="סה"כ נגבה" class="k-num">4,590 ₪</td>
+          <td data-l="סטטוס"><span class="k-badge b-amber">3 דירות חייבות</span></td>
         </tr>
       </tbody>
     </table>
@@ -303,16 +322,16 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>גבייה 2 &nbsp;·&nbsp; 300 ₪ לדירה, שנתי</h3>
     <p class="k-note">חד פעמי, 02.07 עד 09.08.2026. מימן את האגודה לתרבות הדיור, והיתרה לחשמל ציבורי.</p>
-    <table>
+    <table class="k-round">
       <thead>
         <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td class="k-num">300 ₪</td>
-          <td class="k-num">17 דירות</td>
-          <td class="k-num">5,100 ₪</td>
-          <td><span class="k-badge b-amber">בגבייה</span></td>
+          <td data-l="סכום לדירה" class="k-num">300 ₪</td>
+          <td data-l="כמה שילמו" class="k-num">17 דירות</td>
+          <td data-l="סה"כ נגבה" class="k-num">5,100 ₪</td>
+          <td data-l="סטטוס"><span class="k-badge b-amber">בגבייה</span></td>
         </tr>
       </tbody>
     </table>
@@ -326,16 +345,16 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>גבייה 3 &nbsp;·&nbsp; 380 ₪ לדירה, ועד חודשי אוגוסט 2026</h3>
     <p class="k-note">חודשי. כל הסכום עובר לדירותיים, שמשלמת מתוכו חשמל ציבורי, מעליות שינדלר, ניקיון, גינון, הדברה וביטוח. <b>לא נשאר בקופת הבניין.</b></p>
-    <table>
+    <table class="k-round">
       <thead>
         <tr><th>סכום לדירה</th><th>כמה שילמו</th><th>סה&quot;כ נגבה</th><th>סטטוס</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td class="k-num">380 ₪</td>
-          <td class="k-num">16 דירות</td>
-          <td class="k-num">6,080 ₪</td>
-          <td><span class="k-badge b-amber">6 דירות חייבות</span></td>
+          <td data-l="סכום לדירה" class="k-num">380 ₪</td>
+          <td data-l="כמה שילמו" class="k-num">16 דירות</td>
+          <td data-l="סה"כ נגבה" class="k-num">6,080 ₪</td>
+          <td data-l="סטטוס"><span class="k-badge b-amber">6 דירות חייבות</span></td>
         </tr>
       </tbody>
     </table>
@@ -349,7 +368,7 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>מה יצא מהקופה עד היום</h3>
     <p class="k-note">כל ההוצאות מאז האכלוס, 01.10.2025.</p>
-    <div class="k-scroll"><table>
+    <div class="k-scroll"><div class="k-wide"><table>
       <thead>
         <tr><th>תאריך</th><th>למי</th><th>על מה</th><th>סכום</th><th>שולם ע&quot;י</th><th>מקור מימון</th></tr>
       </thead>
@@ -378,13 +397,13 @@ footer a{color:var(--acc);text-decoration:none}
           <td colspan="3">סה&quot;כ יצא</td><td class="k-num">13,595.96 ₪</td><td colspan="2"></td>
         </tr>
       </tbody>
-    </table></div>
+    </table></div></div>
   </div>
 
   <div class="k-card">
     <h3>כמה כסף נשאר בקופה</h3>
     <p class="k-note">אחרי שדירותיים מחזירה ליו&quot;ר הוועד את החשמל והמעליות לפי נספח ב&#39; סעיף 4.4.</p>
-    <table>
+    <div class="k-wide"><table>
       <thead>
         <tr><th>סעיף</th><th>סכום</th><th>הסבר</th></tr>
       </thead>
@@ -409,7 +428,7 @@ footer a{color:var(--acc);text-decoration:none}
           <td>5,628 פחות 1,860</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <div class="k-big">
@@ -421,7 +440,7 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>שתי ההעברות מול דירותיים</h3>
     <p class="k-note">שתי תנועות נפרדות, בלי קיזוז, כדי שלכל כיוון יהיה תיעוד משלו. <b>דירותיים משלמת לעידן, יו&quot;ר הוועד, 7,673.96 ₪ שהוא שילם מכיסו לשינדלר ולחברת החשמל.</b></p>
-    <table>
+    <div class="k-wide"><table>
       <thead>
         <tr><th>כיוון</th><th>מה</th><th>סכום</th><th>הסבר</th></tr>
       </thead>
@@ -449,7 +468,7 @@ footer a{color:var(--acc);text-decoration:none}
           <td class="k-num">7,673.96 ₪</td><td>תוך 14 יום מכניסת ההסכם לתוקף</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
     <p class="k-apts">
       <b>לטיפול בנפרד,</b> החזר 240 ₪ לדירה 11, וגבייה של 2,280 ₪ מ-6 הדירות שטרם שילמו, שדירותיים מבצעת לפי סעיף 5.4.
     </p>
@@ -458,7 +477,7 @@ footer a{color:var(--acc);text-decoration:none}
   <div class="k-card">
     <h3>חובות עבר שדירותיים לוקחת על עצמה</h3>
     <p class="k-note">נספח ב&#39; סעיף 4.1. הסכום המחייב ייקבע לפי כרטסות הספקים, לא לפי אומדן.</p>
-    <table>
+    <div class="k-wide"><table>
       <thead>
         <tr><th>ספק</th><th>יתרה פתוחה</th><th>הערה</th></tr>
       </thead>
@@ -467,7 +486,7 @@ footer a{color:var(--acc);text-decoration:none}
         <tr><td>חברת החשמל, חשמל ציבורי</td><td class="k-num">5,601.57 ₪</td><td>חשבון חוזה 348912059</td></tr>
         <tr class="k-tot"><td>סה&quot;כ</td><td class="k-num">18,914.30 ₪</td><td>מול אומדן 24,438 ₪ שנמסר ב-11.08</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <div class="k-flag">
